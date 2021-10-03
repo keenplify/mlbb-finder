@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2021 at 12:04 PM
+-- Generation Time: Oct 03, 2021 at 12:37 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -90,12 +90,20 @@ CREATE TABLE `tbl_users` (
   `id` int(11) NOT NULL,
   `firstname` varchar(32) NOT NULL,
   `lastname` varchar(32) NOT NULL,
+  `email` varchar(64) NOT NULL,
   `username` int(32) NOT NULL,
   `password` int(255) NOT NULL,
   `birthday` date NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_users`
+--
+
+INSERT INTO `tbl_users` (`id`, `firstname`, `lastname`, `email`, `username`, `password`, `birthday`, `createdAt`, `updatedAt`) VALUES
+(3, 'Aczell', 'Florencio', '', 0, 21232, '2002-02-02', '2021-10-03 10:35:29', '2021-10-03 10:35:29');
 
 --
 -- Indexes for dumped tables
@@ -129,7 +137,9 @@ ALTER TABLE `tbl_tickets`
 -- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -163,7 +173,7 @@ ALTER TABLE `tbl_tickets`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
