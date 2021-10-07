@@ -1,10 +1,18 @@
 <?php
 require_once("../../config/db.php");
 require_once("../../helpers/globals.php");
+$headers = apache_request_headers();
 
 //Decrypts the key and returns the user
-if (isset($_COOKIE['token'])) {
-  $userId = openssl_decrypt($_COOKIE['token'], $TOKEN_ALGORITHM, $TOKEN_PASSWORD, 0, $TOKEN_IV);
+if (isset($headers['Authorization'])) {
+  list($type, $data) = explode(" ", $headers['Authorization'], 2);
+  if (!strcasecmp($type, "Bearer") == 0) {
+    echo "Invalid authorization!";
+    http_response_code(403);
+    return;
+  }
+
+  $userId = openssl_decrypt($data, $TOKEN_ALGORITHM, $TOKEN_PASSWORD, 0, $TOKEN_IV);
 
   if ($userId == false) {
     echo "Bad token!";

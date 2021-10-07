@@ -12,26 +12,25 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
   ";
 
   $results = $mysqli->query($sql);
+  // $response = new stdClass();
 
   if (!mysqli_num_rows($results) > 0) { // If username is found,
-    echo "Username not found!";
-    http_response_code(403);
+    echo "Username not found";
     return;
   }
 
   $user = $results->fetch_object('User');
 
   if (!password_verify($password, $user->password)) { //Check if password is right
-    echo "Wrong password!";
-    http_response_code(403);
+    echo "Wrong password";
     return;
   }
+
   $token = openssl_encrypt($user->id, $TOKEN_ALGORITHM, $TOKEN_PASSWORD, 0, $TOKEN_IV);
   setcookie('token', $token, time() + 60 * 60 * 24 * 7, '/'); //Cookie expires after 7 days
 
-  $response = new stdClass();
-  $response->message = "Successful!";
-  $response->user = $user;
+
+  echo "Successful";
 
   //Redirect if `redirect` is present
   if (isset($_GET['redirect'])) {
