@@ -14,6 +14,7 @@ if (isset($_COOKIE["token"])) {
   if ($result) {
     $me = json_decode($result);
   } else {
+    header('Location: /');
   }
 }
 
@@ -26,9 +27,8 @@ if (isset($_COOKIE["token"])) {
 </head>
 
 <body>
-  <?php
-  print_r($me);
-  ?>
+  <p>Welcome, <?php echo $me->firstname; ?></p>
+  <a href="../../server/api/users/logout.php">Logout</a>
 </body>
 
 </html>

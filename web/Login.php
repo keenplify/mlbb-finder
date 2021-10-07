@@ -1,3 +1,23 @@
+<?php
+require("./helpers/cURL.php");
+
+$me = false;
+$result = false;
+
+// Check if token is valid
+if (isset($_COOKIE["token"])) {
+  $token = $_COOKIE["token"];
+  $result = CallAPI("GET", "http://localhost/server/api/users/me.php", false, array(
+    "Authorization: Bearer " . $token
+  ));
+
+  if ($result) {
+    header('Location: /');
+  }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -144,9 +164,9 @@
                   if (data !== "Successful") {
                     output.querySelector("#output").innerHTML = data
                     output.style.visibility = "visible"
+                  } else {
+                    window.location.href = "/web/dashboard"
                   }
-
-                  window.location.href = "/"
                 }
               })
               return false;

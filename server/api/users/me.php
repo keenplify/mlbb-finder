@@ -32,10 +32,7 @@ if (isset($headers['Authorization'])) {
     return;
   }
 
-  $response = new stdClass();
-  $response->message = "Successful!";
-  $response->user = $result->fetch_object('User');
-  echo json_encode($response);
+  echo json_encode($result->fetch_object("User"));
 } else {
   echo "Token not found!";
   http_response_code(401);
