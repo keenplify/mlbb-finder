@@ -9,7 +9,7 @@ if (isset($_COOKIE["token"])) {
   ));
 
   if ($result) {
-    header('Location: /web/user');
+    header('Location: /web/dashboard');
   }
 }
 
