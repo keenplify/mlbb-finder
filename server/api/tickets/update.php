@@ -11,15 +11,15 @@ if (
   $body = filter_var($_POST['body']);
   
   $sql = "
-    INSERT INTO `tbl_tickets` (createdBy, title, body)
-    VALUES ('$createdBy', '$title', '$body');
+  UPDATE `tbl_tickets` SET title = '$title', body = '$body'
+  WHERE createdBy = '$createdBy';
   ";
 
 
   $res = $mysqli->query($sql);
 
   if ($res) {
-    echo "Ticket added successfully";
+    echo "Ticket updated successfully";
   } else {
     print_r($mysqli->error);
     http_response_code(400);
@@ -28,4 +28,3 @@ if (
   //If all statements are wrong, Return error 400
   http_response_code(400);
 }
-
