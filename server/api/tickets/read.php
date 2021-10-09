@@ -2,7 +2,7 @@
 require_once("../../config/db.php");
 
 if (
-  isset($_POST['username']) &&
+  isset($_POST['username'])
 ) {
   $createdBy = filter_var($_POST['username']);
 
