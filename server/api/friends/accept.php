@@ -3,15 +3,16 @@ require_once("../../config/db.php");
 
 if (
   isset($_POST['createdBy']) &&
-  isset($_POST['friendUserId']) 
+  isset($_POST['friendUserId']) &&
+  isset($_POST['friendId'])
 ) {
   $user_id = filter_var($_POST['createdBy']);
   $friendUserId = filter_var($_POST['friendUserId']);
-  
+  $id = filter_var($_POST['friendId']);
   
   $sql = "
     INSERT INTO `tbl_friend` (friendUserId, createdBy, isAccepted)
-    VALUES ('$friendUserId', '$user_id', false);
+    VALUES ('$friendUserId', '$user_id', '$id');
   ";
 
 

@@ -7,18 +7,15 @@ if (
 ) {
   $user_id = filter_var($_POST['createdBy']);
   $friendUserId = filter_var($_POST['friendUserId']);
-  
-  
-  $sql = "
-    INSERT INTO `tbl_friend` (friendUserId, createdBy, isAccepted)
-    VALUES ('$friendUserId', '$user_id', false);
-  ";
 
+  $sql = "
+  DELETE FROM `tbl_friend` WHERE friendUserId = '$friendUserId';
+  ";
 
   $res = $mysqli->query($sql);
 
   if ($res) {
-    echo "Friend added successfully";
+    echo "Friend deleted successfully";
   } else {
     print_r($mysqli->error);
     http_response_code(400);
