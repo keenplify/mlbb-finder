@@ -2,16 +2,12 @@
 require_once("../../config/db.php");
 
 if (
-  isset($_POST['username']) &&
-  isset($_POST['title']) &&
-  isset($_POST['body']) 
+  isset($_POST['ticket_id'])
 ) {
-  $createdBy = filter_var($_POST['username']);
-  $title = filter_var($_POST['title']);
-  $body = filter_var($_POST['body']);
+  $ticket_id = filter_var($_POST['ticket_id']);
   
   $sql = "
-  DELETE FROM `tbl_tickets` WHERE createdBy = '$cretedBy';
+  DELETE FROM `tbl_tickets` WHERE ticket_id = '$ticket_id';
   ";
 
   $res = $mysqli->query($sql);

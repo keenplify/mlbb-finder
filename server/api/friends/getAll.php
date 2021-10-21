@@ -2,12 +2,12 @@
 require_once("../../config/db.php");
 
 if (
-  isset($_POST['friend_id'])
+  isset($_POST['createdBy'])
 ) {
-  $id = filter_var($_POST['friend_id']);
+  $createdBy = filter_var($_POST['createdBy']);
 
   $sql = "
-    SELECT * FROM `tbl_friend` WHERE friend_id = '$id'
+    SELECT * FROM `tbl_friend` WHERE createdBy = '$createdBy'
   ";
 
   $result = $mysqli->query($sql);

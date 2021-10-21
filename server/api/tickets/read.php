@@ -8,7 +8,7 @@ if (
 
   
   $sql = "
-    SELECT * FROM `tbl_tickets` WHERE id= '$createdBy'
+    SELECT * FROM `tbl_tickets` WHERE createdBy='$createdBy'
   ";
 
 

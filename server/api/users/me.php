@@ -21,7 +21,7 @@ if (isset($headers['Authorization'])) {
   }
 
   $sql = "
-    SELECT * FROM tbl_users WHERE id=$userId
+    SELECT * FROM tbl_users WHERE user_id=$userId
   ";
 
   $result = $mysqli->query($sql);
