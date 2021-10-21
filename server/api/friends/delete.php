@@ -2,14 +2,12 @@
 require_once("../../config/db.php");
 
 if (
-  isset($_POST['createdBy']) &&
-  isset($_POST['friendUserId']) 
+  isset($_POST['friend_id']) 
 ) {
-  $user_id = filter_var($_POST['createdBy']);
-  $friendUserId = filter_var($_POST['friendUserId']);
+  $id = filter_var($_POST['friend_Id']);
 
   $sql = "
-  DELETE FROM `tbl_friend` WHERE friendUserId = '$friendUserId';
+  DELETE FROM `tbl_friend` WHERE friend_Id = '$id';
   ";
 
   $res = $mysqli->query($sql);

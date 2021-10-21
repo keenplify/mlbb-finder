@@ -2,18 +2,18 @@
 require_once("../../config/db.php");
 
 if (
-  isset($_POST['createdBy'])
+  isset($_POST['friend_id'])
 ) {
-  $user_id = filter_var($_POST['createdBy']);
+  $id = filter_var($_POST['friend_id']);
 
   $sql = "
-    SELECT * FROM `tbl_friend` WHERE createdBy = '$user_id'
+    SELECT * FROM `tbl_friend` WHERE friend_id = '$id'
   ";
 
   $result = $mysqli->query($sql);
 
   if (!$result) {
-    echo "User is invalid!";
+    echo "Invalid!";
     http_response_code(406);
     return;
   }
