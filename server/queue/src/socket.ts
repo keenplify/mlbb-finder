@@ -1,37 +1,47 @@
 import { Socket } from "socket.io";
 import { DefaultEventsMap } from "socket.io/dist/typed-events";
-import { ClientData, Data } from "./types";
-import { useConnection } from "./helpers/connection";
+import { ClientData, Preference, User } from "./types";
+import { usePromisifiedConnection } from "./helpers/connection";
 
-const connection = useConnection();
-
-export const Listener = (
-  client: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>
+export const Listener = async (
+  client: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>,
+  clientDataArray: ClientData[]
 ) => {
-  let clientData: ClientData;
+  const connection = await usePromisifiedConnection();
+  let _user: User;
+  let _preferenceId: number;
 
-  client.on("event", (data: Data) => {
-    if (data.method === "init") {
-      connection.query(
-        `
-        INSERT INTO 'tbl_queue' (createdBy, preferenceId)
-        VALUES ('${data.params.userId}', '${data.params.preferenceId}');
-      `
+  client.on(
+    "enqueue",
+    async (user: User, preferenceId: number, cb: () => any) => {
+      console.log(user);
+      clientDataArray[user.user_id] = {
+        client,
+        preferenceId,
+        user,
+      };
+      _user = user;
+      _preferenceId = preferenceId;
+
+      await connection.query(
+        `INSERT INTO tbl_queue (createdBy, preferenceId) VALUES (${user.user_id},${preferenceId})`
       );
-      connection.query(
-        `
-        SELECT * FROM 'tbl_preference' WHERE preference_id=${data.params.preferenceId};
-        `,
-        (err, result, fields) => {
-          console.log({ err, result, fields });
-        }
-      );
+
+      cb();
     }
-  });
+  );
+
+  const dequeue = async () => {
+    console.log("User dequeued");
+    await connection.query(
+      `DELETE FROM tbl_queue WHERE createdBy=${_user.user_id}`
+    );
+  };
+
+  client.on("dequeue", dequeue);
 
   client.on("disconnect", () => {
-    connection.query(
-      `DELETE FROM 'tbl_queue' WHERE createdBy=${clientData.user.user_id}`
-    );
+    _user && console.log("User " + _user.user_id + " has disconnected.");
+    dequeue();
   });
 };

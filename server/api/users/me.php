@@ -14,7 +14,7 @@ if (isset($headers['Authorization'])) {
 
   $userId = openssl_decrypt($data, $TOKEN_ALGORITHM, $TOKEN_PASSWORD, 0, $TOKEN_IV);
 
-  if ($userId == false) {
+  if ($userId === false) {
     echo "Bad token!";
     http_response_code(403);
     return;
@@ -27,7 +27,7 @@ if (isset($headers['Authorization'])) {
   $result = $mysqli->query($sql);
 
   if (!$result) {
-    echo "Token user is invalid!";
+    echo "Token user is invalid! " . $userId;
     http_response_code(406);
     return;
   }

@@ -1,14 +1,20 @@
-import { Lobby, Preference, Queue } from "./types";
+import { ClientData, Lobby, Preference, Queue } from "./types";
 import { useConnection } from "./helpers/connection";
 import dayjs from "dayjs";
 import { mmRole } from "./matchmaking-logics/roles";
 import { mmRegion } from "./matchmaking-logics/region";
 import util from "util";
 import { filter } from "./helpers/filter";
+import { Server } from "socket.io";
+import { DefaultEventsMap } from "socket.io/dist/typed-events";
+import { v4 } from "uuid";
 
 const connection = useConnection();
 
-export const MatchmakingLoop = async () => {
+export const MatchmakingLoop = async (
+  io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>,
+  clientDataArray: ClientData[]
+) => {
   let potentialLobbies: Lobby[] = [];
   //Get all active matchmaking users
   let isoDate = dayjs().subtract(120, "minutes").toDate().toISOString();
@@ -59,8 +65,8 @@ export const MatchmakingLoop = async () => {
     }
   );
 
-  // AFTER THE LOOP
-  setTimeout(() => {
+  // AFTER THE LOOP, TRIM ROOMS TO ONLY HAVE 5 PLAYERS OF ANY ROLES
+  setTimeout(async () => {
     const lobbiesFormed = potentialLobbies
       .map((lobby) => {
         const keys = Object.keys(lobby.players);
@@ -69,16 +75,38 @@ export const MatchmakingLoop = async () => {
             .map((key, i) => {
               if (i <= 4) return lobby.players[key];
             })
-            .filter(filter);
+            .filter(filter)
+            .map((player) => {
+              return {
+                clientData: clientDataArray[player.queue.createdBy],
+                ...player,
+              };
+            });
 
           return {
             ...lobby,
             players: validPlayers,
+            id: v4(),
           };
         }
       })
       .filter(filter);
 
-    console.log("Valid Lobbies: ", lobbiesFormed);
+    let queues: Queue[] = [];
+
+    lobbiesFormed.map((lobby) => {
+      lobby.players.forEach((player) => {
+        player.clientData.client.emit("lobby_created", lobby);
+        queues.push(player.queue);
+      });
+    });
+
+    if (queues.length > 0) {
+      connection.query(
+        `DELETE FROM tbl_queue WHERE id IN (${queues
+          .map((q) => q.queue_id)
+          .join(",")})`
+      );
+    }
   }, 1000);
 };

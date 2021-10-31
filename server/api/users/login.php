@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once("../../helpers/globals.php");
 require_once("../../config/db.php");
 
@@ -19,16 +21,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     return;
   }
 
-  $user = $results->fetch_object('User');
+  $user = $results->fetch_object();
 
   if (!password_verify($password, $user->password)) { //Check if password is right
     echo "Wrong password";
     return;
   }
 
-  $token = openssl_encrypt($user->id, $TOKEN_ALGORITHM, $TOKEN_PASSWORD, 0, $TOKEN_IV);
-  setcookie('token', $token, time() + 60 * 60 * 24 * 7, '/'); //Cookie expires after 7 days
-
+  // $token = openssl_encrypt($user->id, $TOKEN_ALGORITHM, $TOKEN_PASSWORD, 0, $TOKEN_IV);
+  // setcookie('token', $token, time() + 60 * 60 * 24 * 7, '/'); //Cookie expires after 7 days
+  $_SESSION['user'] = $user;
 
   echo "Successful";
 

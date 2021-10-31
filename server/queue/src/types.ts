@@ -12,9 +12,9 @@ export interface Init {
 export type Data = Init;
 
 export interface ClientData {
-  preference: Preference;
-  user: User;
+  preferenceId: number;
   client: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>;
+  user: User;
 }
 
 export interface Queue {
@@ -63,3 +63,9 @@ export type Roles =
   | "Support";
 
 export type GameModes = "Classic" | "Rank" | "Brawl";
+
+export type Message = {
+  message: string;
+  createdAt: Date;
+  user: User;
+};
