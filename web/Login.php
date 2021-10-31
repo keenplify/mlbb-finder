@@ -22,6 +22,7 @@ if (isset($_COOKIE["token"])) {
 <html lang="en">
 
 <head>
+<link rel="shortcut icon" type="text/css" href="img/Logo.jpg"> 
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,68 +50,15 @@ if (isset($_COOKIE["token"])) {
 </head>
 
 <body>
-  <!--- Registration Form --->
-  <div class="form1 col-lg-12">
-    <section class="Registration m-auto mt-5 col-lg-5">
-      <div class="col-lg-12 p-3">
-
-        <div class="form-row pl-1">
-          <div class="offset-1 col-lg-9">
-            <i class="fas fa-times" id="exit"></i>
-          </div>
-        </div>
-        <h1>Create an Account</h1>
-        <form>
-          <div class="form">
-            <div class="offset-1 col-lg-12 m-auto">
-              <label for="validationTooltip01" class="form-label">First Name: </label>
-              <input type="text" class="form-control" placeholder="First Name" required>
-            </div>
-          </div>
-
-          <div class="form py-1">
-            <div class="offset-1 col-lg-12">
-              <label for="validationTooltip01" class="form-label">Last Name: </label>
-              <input type="text" class="form-control" placeholder="Last Name" required>
-            </div>
-          </div>
-
-          <div class="mb-1">
-            <label for="exampleInputEmail1" class="form-label">Username</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
-            <div id="emailHelp" class="form-text">We'll never share your Username with anyone else.</div>
-          </div>
-
-          <label for="inputPassword5" class="form-label">Password</label>
-          <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password">
-          <div id="passwordHelpBlock" class="form-text">
-            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-          </div>
-
-          <div class="form-row py-4">
-            <div class="offset-1 col-lg-20">
-              <button class="btn1">Sign Up</button>
-            </div>
-          </div>
-
-          <div class="form">
-            <div class="col-lg-15">
-              <p class="text-secondary">Already have an account?<a class="nav-link" id="Login">Log in</a></p>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-  </div>
 
   <!--- Log In Form --->
-  <section class="login m-auto py-5 ">
+  <section class="login m-auto py-5">
     <div class="container">
       <div class="row g-0">
         <div class="col-md-5">
-          <img src="img/photo-1580820267682-426da823b514.jfif" class="img-fluid">
+          <img src="img/mobile-legends-bruno.jpg" class="img-fluid">
         </div>
-        <div class="col-lg-7 p-4 py-5 text-center">
+        <div class="col-lg-7 py-4 text-center">
           <h1>Welcome Back</h1>
           <div id="login-output" class="alert alert-danger" role="alert" style="visibility: hidden">
             <h4 class="alert-heading">There's something wrong!</h4>
@@ -118,12 +66,11 @@ if (isset($_COOKIE["token"])) {
               </sp>
           </div>
           <form id="login-form">
-            <div class="form-row py-4">
+            <div class="form-row">
               <div class="offset-1 col-lg-10">
                 <i class="fas fa-user"></i><input type="text" id="username" class="inp" name="username" placeholder="UserName" required>
               </div>
             </div>
-
 
             <div class="form-row py-3">
               <div class="offset-1 col-lg-10">
@@ -132,15 +79,15 @@ if (isset($_COOKIE["token"])) {
             </div>
 
 
-            <div class="form-row py-3">
-              <div class="offset-1 col-lg-20">
+            <div class="form-row py-1">
+              <div class="offset-1 col-lg-15">
                 <button class="btn1" type="submit">Log In</button>
               </div>
             </div>
 
             <div class="form-row py-2">
-              <div class="col-lg-15">
-                <p class="text-secondary">Don't have account?<a class="nav-link" id="Signup" href="#">Sign Up</a></p>
+              <div class="col-lg-12">
+                <p class="text-secondary">Don't have account?<a class="nav-link" id="Signup" href="Registration.php">Sign Up</a></p>
               </div>
             </div>
 
@@ -176,18 +123,6 @@ if (isset($_COOKIE["token"])) {
       </div>
     </div>
   </section>
-
-  <script>
-    document.getElementById("Signup").addEventListener("click", function() {
-      document.querySelector(".form1 ").style.display = "flex";
-    })
-    document.querySelector(".fa-times").addEventListener("click", function() {
-      document.querySelector(".form1").style.display = "none";
-    })
-    document.getElementById("Login").addEventListener("click", function() {
-      document.querySelector(".form1").style.display = "none";
-    })
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 

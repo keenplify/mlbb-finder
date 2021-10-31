@@ -1,0 +1,5 @@
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url("img/6d375cb8-e030-4779-afba-c09229bbc019.jpg"); 
+    background-position: 50% 50%;
+	background-size:cover;
+}
