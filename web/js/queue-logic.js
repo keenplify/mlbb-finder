@@ -9,7 +9,7 @@ let is_queued = false;
 function toggle() {
   is_queued = !is_queued;
 
-  if (is_queued) return startQueue(1);
+  if (is_queued) return startQueue(selectedPreference);
   else stopQueue();
 }
 
@@ -35,19 +35,4 @@ function stopQueue() {
   socket.emit("dequeue");
 
   TIMERELEMENT.innerHTML = "0";
-}
-
-function listUserPreferences() {
-  $.ajax({
-    url: "http://localhost/server/api/preferences/getUserPreferences.php",
-    data: {
-      createdBy: USER.user_id,
-    },
-    success: (data) => {
-      if (data === "null") return console.log("Invalid user!");
-      console.log(data, USER.user_id);
-      const preferences = JSON.parse(data);
-      console.log(preferences);
-    },
-  });
 }

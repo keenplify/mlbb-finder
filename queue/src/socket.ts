@@ -14,7 +14,6 @@ export const Listener = async (
   client.on(
     "enqueue",
     async (user: User, preferenceId: number, cb: () => any) => {
-      console.log(user);
       clientDataArray[user.user_id] = {
         client,
         preferenceId,
@@ -32,10 +31,10 @@ export const Listener = async (
   );
 
   const dequeue = async () => {
-    console.log("User dequeued");
-    await connection.query(
-      `DELETE FROM tbl_queue WHERE createdBy=${_user.user_id}`
-    );
+    if (_user)
+      await connection.query(
+        `DELETE FROM tbl_queue WHERE createdBy=${_user.user_id}`
+      );
   };
 
   client.on("dequeue", dequeue);

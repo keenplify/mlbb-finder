@@ -13,21 +13,7 @@ if (isset($_GET["createdBy"])) {
 
 
   if ($res) {
-  // $row_cnt = $res->num_rows;
-  // $loop_ct = 0;
-
-  //  echo "[";
-
-  //   while ($row = mysqli_fetch_assoc($res)) {
-  //     echo json_encode($row);
-  //     if (++$loop_ct > $row_cnt) { 
-  //       echo ",";
-  //     }
-  //   }
-
-  //   echo "]";
-
-  echo json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
+    echo json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
   } else {
     print_r($mysqli->error);
     http_response_code(400);
