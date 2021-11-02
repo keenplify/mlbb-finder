@@ -12,7 +12,7 @@ if (isset($_COOKIE["token"])) {
   ));
 
   if ($result) {
-    header('Location: /');
+    header('Location: /web/dashboard');
   }
 }
 
@@ -24,6 +24,8 @@ if (isset($_COOKIE["token"])) {
 <head>
 <link rel="shortcut icon" type="text/css" href="img/Logo.jpg"> 
   <!-- Required meta tags -->
+  <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
+  <meta http-equiv="pragma" content="no-cache" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,14 +48,14 @@ if (isset($_COOKIE["token"])) {
 
   <!-- JQUERY -->
   <script src="./js/jquery-3.6.0.min.js"></script>
-  <title>Mobile Legends: Bang Bang Player Finder Web Application</title>
+  <title>Login | Mobile Legends: Bang Bang Player Finder Web Application</title>
 </head>
 
 <body>
 
   <!--- Log In Form --->
-  <section class="login m-auto py-5">
-    <div class="container">
+  <div class="container">
+    <section class="login m-auto py-5">
       <div class="row g-0">
         <div class="col-md-5">
           <img src="img/mobile-legends-bruno.jpg" class="img-fluid">
@@ -66,17 +68,20 @@ if (isset($_COOKIE["token"])) {
               </sp>
           </div>
           <form id="login-form">
-            <div class="form-row">
-              <div class="offset-1 col-lg-10">
-                <i class="fas fa-user"></i><input type="text" id="username" class="inp" name="username" placeholder="UserName" required>
+            <div  class="d-flex justify-content-center flex-column w-100">
+              <div class="form-row">
+                <div>
+                  <i class="fas fa-user"></i><input type="text" id="username" class="inp" name="username" placeholder="UserName" required>
+                </div>
               </div>
-            </div>
 
-            <div class="form-row py-3">
-              <div class="offset-1 col-lg-10">
-                <i class="fas fa-lock"></i><input type="password" id="password" class="inp" name="password" placeholder="Password" required>
+              <div class="form-row py-3">
+                <div>
+                  <i class="fas fa-lock"></i><input type="password" id="password" class="inp" name="password" placeholder="Password" required>
+                </div>
               </div>
             </div>
+            
 
 
             <div class="form-row py-1">
@@ -121,9 +126,8 @@ if (isset($_COOKIE["token"])) {
           </script>
         </div>
       </div>
-    </div>
-  </section>
-
+    </section>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 

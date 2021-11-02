@@ -26,6 +26,9 @@ $me = $_SESSION["user"];
   </head>
 
   <body>
+    <pre>
+      <?php print_r($me);?>
+    </pre>
     <p>Welcome, <?php echo $me->firstname; ?></p>
     <a href="../../server/api/users/logout.php">Logout</a>
 
