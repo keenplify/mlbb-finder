@@ -5,7 +5,7 @@ $me = false;
 $result = false;
 
 // Check if token is valid
-if (isset($_COOKIE["token"])) {
+if (isset($_SESSION["user"])) {
   $token = $_COOKIE["token"];
   $result = CallAPI("GET", "http://localhost/server/api/users/me.php", false, array(
     "Authorization: Bearer " . $token
