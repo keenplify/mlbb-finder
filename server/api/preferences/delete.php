@@ -1,6 +1,24 @@
-<!-- Request Type: POST
+<?php
+require_once("../../config/db.php");
 
-contents: 
-preference_id
+if (
+  isset($_POST['preference_id']) 
+) {
+  $preference_id = filter_var($_POST['preference_id']);
 
-output: Preference deleted successfully. -->
+  $sql = "
+  DELETE FROM `tbl_preference` WHERE preference_id = '$preference_id';
+  ";
+
+  $res = $mysqli->query($sql);
+
+  if ($res) {
+    echo "Preference deleted successfully";
+  } else {
+    print_r($mysqli->error);
+    http_response_code(400);
+  }
+} else {
+  //If all statements are wrong, Return error 400
+  http_response_code(400);
+}
