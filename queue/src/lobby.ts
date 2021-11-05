@@ -1,5 +1,6 @@
 import { Server } from "socket.io";
 import { DefaultEventsMap } from "socket.io/dist/typed-events";
+import { usePromisifiedConnection } from "./helpers/connection";
 import { ClientData, GameModes, Message, Preference, Queue } from "./types";
 
 type Lobby = {
@@ -12,28 +13,21 @@ type Lobby = {
   gamemode: GameModes;
 };
 
-export const CreateLobby = (
+export const CreateLobby = async (
   io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>,
   lobby: Lobby
 ) => {
-  let messages: Message[] = [];
+  const connection = await usePromisifiedConnection();
 
-  //Subscribes the client to lobby Id
-  lobby.players.forEach((player) => {
-    const client = player.clientData.client;
-
-    client.join(lobby.id);
-
-    client.on("create_message", async (message: string) => {
-      const _message: Message = {
-        message,
-        createdAt: new Date(),
-        user: player.clientData.user,
-      };
-
-      messages.push(_message);
-
-      io.to(lobby.id).emit("new_message", _message);
-    });
-  });
+  // Initial queries
+  await connection.query(
+    `INSERT INTO tbl_lobby (uuid) VALUES ("${lobby.id}");`
+  );
+  await connection.query(
+    `UPDATE tbl_users SET currentLobbyUUID='${
+      lobby.id
+    }' WHERE user_id IN (${lobby.players
+      .map((q) => q.clientData.user.user_id)
+      .join(",")});`
+  );
 };

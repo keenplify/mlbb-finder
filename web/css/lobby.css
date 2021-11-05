@@ -1,0 +1,61 @@
+/* body,
+html {
+  overflow: hidden;
+} */
+
+.container {
+  position: relative;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.main {
+  display: flex;
+  overflow-y: scroll;
+  height: 85%;
+  /* align-self: stretch; */
+}
+
+#addMessageForm {
+  background: white;
+  padding: 1em;
+  border-radius: 1em 1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#newMessageTextArea {
+  resize: vertical;
+  max-height: 200px;
+}
+
+.addMessageRow {
+  height: 15%;
+}
+
+.message_card {
+  border-radius: 0.25em;
+  border: 1px solid grey;
+  background-color: white;
+  min-width: min-content;
+  max-width: 50%;
+  padding: 0.5em;
+  margin: 0.5em;
+  word-break: break-all;
+}
+
+.author_badge {
+  background-color: blueviolet;
+}
+
+.author_you {
+  background-color: blanchedalmond;
+  color: black;
+}
+
+.author_you::after {
+  content: "(You)";
+}
+
+.message_card_you {
+  margin-left: auto;
+}

@@ -16,9 +16,10 @@ const io = new Server(httpServer, {
 const port = 8001;
 
 let clientDataArray: ClientData[] = [];
-let lobbies: Lobby[] = [];
+let clients: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>[] =
+  [];
 
-io.on("connection", (socket) => Listener(socket, clientDataArray));
+io.on("connection", (socket) => Listener(socket, clientDataArray, clients));
 
 httpServer.listen(port, () => {
   console.log("Queue Websocket started at port " + port);

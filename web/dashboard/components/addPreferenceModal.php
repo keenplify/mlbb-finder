@@ -23,6 +23,7 @@
               <select class="custom-select" name="primaryRole" id="addPreference_primaryRole">
                 <option value="Tank" selected>Tank</option>
                 <option value="Fighter">Fighter</option>
+                <option value="Marksman">Marksman</option>
                 <option value="Mage">Mage</option>
                 <option value="Assassin">Assassin</option>
                 <option value="Support">Support</option>
@@ -34,6 +35,7 @@
               <select class="custom-select" name="secondaryRole" id="addPreference_secondaryRole">
                 <option value="Tank">Tank</option>
                 <option value="Fighter" selected>Fighter</option>
+                <option value="Marksman">Marksman</option>
                 <option value="Mage">Mage</option>
                 <option value="Assassin">Assassin</option>
                 <option value="Support">Support</option>
@@ -54,12 +56,12 @@
 
 <!-- Javascript -->
 <script defer>
-  const form = document.querySelector("#addPreferenceForm");
+  const _addForm = document.querySelector("#addPreferenceForm");
   const addPreference_gameMode = document.querySelector("#addPreference_gameMode");
   const addPreference_primaryRole = document.querySelector("#addPreference_primaryRole");
   const addPreference_secondaryRole = document.querySelector("#addPreference_secondaryRole");
 
-  form.onsubmit = (event) => {
+  _addForm.onsubmit = (event) => {
     event.preventDefault();
 
      $.ajax({
@@ -73,7 +75,9 @@
       },
       success: (data) => {
         if (data === "null") return console.log("Invalid user!");
-        setPreferenceList(JSON.parse(data))
+        listUserPreferences();
+        selectedPreference
+        $('#addPreferenceModal').modal('hide');
       },
     });
   }

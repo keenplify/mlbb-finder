@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!---------------------------- CSS---------------------------->
-    <link rel="stylesheet" type="text/css" href="AboutUs.css">
+    <link rel="stylesheet" type="text/css" href="css/AboutUs.css">
 
     <!---------------------------- Bootstrap ---------------------------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -288,7 +288,7 @@
                 <img src="img/Logo.jpg" class="img-fluid" id="pc">
                 </div>
                 <div class="col-lg-7 text-center m-auto">
-              <p>Copyright  Mooton Online. Trademarks belong to their respective owners. All Rights Reserved. Copyright © Mobile Legend Bang Bang, Inc. "Mobile Legend Bang Bang" are trademarks,service marks and/or registered trademarks throughout the world. All rights reserved.</p>
+              <p>Copyright  Mooton Online. Trademarks belong to their respective owners. All Rights Reserved. Copyright ï¿½ Mobile Legend Bang Bang, Inc. "Mobile Legend Bang Bang" are trademarks,service marks and/or registered trademarks throughout the world. All rights reserved.</p>
               </div>
                <div class="container d-flex">
                       <a class="btn btn-danger btn0 m-auto fs-5" href="Login.php" role="button">LOG IN</a>

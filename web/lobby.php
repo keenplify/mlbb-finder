@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("../helpers/cURL.php");
+require("helpers/cURL.php");
 
 if (!isset($_SESSION["user"])) {
   header('Location: ../Login.php');;
@@ -19,34 +19,33 @@ $me = $_SESSION["user"];
     <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
     <meta http-equiv="pragma" content="no-cache" />
     <!-- JQUERY -->
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script src="../js/socket.io.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/socket.io.min.js"></script>
     <script>
       // FOR PHP-JAVASCRIPT CONNECTIONS
       var _USERJSON = `<?php print json_encode($me)?>`;
+      const MessageCardFn = (v, author) => `<?php require("./components/Messagecard.php")?>`;
     </script>
-    <script src="../js/queue-logic.js" defer></script>
+    <script src="js/lobby-logic.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../img/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="img/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="css/lobby.css" rel="stylesheet">
   </head>
 
   <body>
     
     <div class="container">
-      <?php require "components\preferences.php";?>
-    
-      <a href="../../server/api/users/logout.php" class="btn btn-danger">Logout</a>
-
-      <button onclick="toggle()" id="start_btn" class="btn btn-primary">Enqueue</button>
-      <p>
-        <span>Timer:</span>
-        <span id="timer">0</span>
-        
-      </p>
-      <p>
-        <span>Online Users:</span>
-        <span id="onlineCount">0</span>
-      </p>
+      <div class="main row mx-2">
+        <div class="col-md-4 p-2">
+          Online Users
+        </div>
+        <div class="col-md-8 bg-light">
+          <div id="messages_container" class="messages_container"></div>
+        </div>
+      </div>
+      <div class="row addMessageRow">
+        <?php require("./components/AddMessageForm.php");?>
+      </div>
     </div>
 
     <!-- Important Scripts! Dont Remove! -->

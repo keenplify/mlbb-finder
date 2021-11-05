@@ -1,5 +1,6 @@
 
 <?php require "addPreferenceModal.php" ?>
+<?php require "deletePreferenceModal.php" ?>
 
 <div class="row m-3">
   <div class="col-md-6">
@@ -14,6 +15,10 @@
           <button class="btn btn-primary mx-1" data-toggle="modal" data-target="#addPreferenceModal">
             <span class="oi oi-plus"></span>
             Add
+          </button>
+          <button class="btn btn-danger mx-1" data-toggle="modal" data-target="#deletePreferenceModal">
+            <span class="oi oi-minus"></span>
+            Delete
           </button>
         </div>
       </div>
@@ -71,7 +76,11 @@
   }
 
   function setPreferenceList(newValue) {
-    if (typeof newValue !== "object") return;
+    if (typeof newValue !== "object" || newValue?.length <= 0) {
+      preferenceProfileSelect.innerHTML = "<option disabled>No preference settings!</option>";
+      UpdateTable();
+      return;
+    };
     let innerHTML = '';
     newValue.map(preference => innerHTML += `<option value="${preference.preference_id}">
       ${preference.primaryRole} + ${preference.secondaryRole} | ${preference.gameMode}
@@ -84,8 +93,14 @@
   
   function UpdateTable() {
     const val = preferenceProfileSelect.value
+    const currentPreference = preferences.filter(e=>e!==undefined).find((v) => v.preference_id.toString() === val.toString())
 
-    const currentPreference = preferences.find((v) => v.preference_id.toString() === val.toString())
+    if (currentPreference === undefined) {
+      gamemodeText.innerHTML= "N/A";
+      primaryRoleText.innerHTML = "N/A";
+      secondaryRoleText.innerHTML = "N/A";
+    }
+
     selectedPreference = Number.parseInt(currentPreference.preference_id);
     gamemodeText.innerHTML= currentPreference.gameMode;
     primaryRoleText.innerHTML = currentPreference.primaryRole;

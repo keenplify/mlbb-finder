@@ -15,7 +15,7 @@ if (
   
   $sql = "
     INSERT INTO `tbl_preference` (gameMode, primaryRole, secondaryRole, createdBy)
-    VALUES ('$gameMode', '$primaryRole', '$secondaryRole', '$createdBy',);
+    VALUES ('$gameMode', '$primaryRole', '$secondaryRole', $createdBy);
   ";
 
 

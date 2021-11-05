@@ -5,9 +5,10 @@ import { mmRole } from "./matchmaking-logics/roles";
 import { mmRegion } from "./matchmaking-logics/region";
 import util from "util";
 import { filter } from "./helpers/filter";
-import { Server } from "socket.io";
+import { Server, Socket } from "socket.io";
 import { DefaultEventsMap } from "socket.io/dist/typed-events";
 import { v4 } from "uuid";
+import { CreateLobby } from "./lobby";
 
 const connection = useConnection();
 
@@ -34,7 +35,7 @@ export const MatchmakingLoop = async (
               (p) => p.preference_id === q.preferenceId
             );
 
-            mmRegion(potentialLobbies, preference, q);
+            mmRole(potentialLobbies, preference, q, true);
           });
         }
       );
@@ -96,17 +97,18 @@ export const MatchmakingLoop = async (
 
     lobbiesFormed.map((lobby) => {
       lobby.players.forEach((player) => {
-        player.clientData.client.emit("lobby_created", lobby);
+        player.clientData.client.emit("lobby_created", lobby.id);
         queues.push(player.queue);
       });
+
+      CreateLobby(io, lobby);
     });
 
     if (queues.length > 0) {
-      connection.query(
-        `DELETE FROM tbl_queue WHERE id IN (${queues
-          .map((q) => q.queue_id)
-          .join(",")})`
-      );
+      const query = `DELETE FROM tbl_queue WHERE queue_id IN (${queues
+        .map((q) => q.queue_id)
+        .join(",")})`;
+      connection.query(query);
     }
   }, 1000);
 };

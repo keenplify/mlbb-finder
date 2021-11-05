@@ -12,9 +12,9 @@ export interface Init {
 export type Data = Init;
 
 export interface ClientData {
-  preferenceId: number;
+  preferenceId?: number;
   client: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>;
-  user: User;
+  user?: User;
 }
 
 export interface Queue {
@@ -31,6 +31,7 @@ export interface User {
   username: string;
   password: string;
   birthday: any;
+  currentLobbyUUID: string;
   createdAt: any;
   updatedAt: any;
 }
