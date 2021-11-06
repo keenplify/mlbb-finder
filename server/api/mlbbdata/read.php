@@ -21,7 +21,7 @@ if (isset($_GET['data_id'])) {
         return;
     }
 
-    echo json_encode($result->fetch_object("mlbbdata"))
+    echo json_encode($result->fetch_object("mlbbdata"));
 } else {
     echo "Data ID not found!";
     http_response_code(401);
