@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <!---------------------------- LOGO ---------------------------->
     <link rel="shortcut icon" type="text/css" href="img/Logo.jpg">
@@ -47,7 +47,7 @@
                         <a href="AboutUs.php" class="nav-link text-white">ABOUT US</a>
                     </li>
                      <li class="nav-item">
-                        <a class="btn btn-danger btn0 m-auto fs-5" href="Login.php" role="button">LOG IN</a>
+                        <a class="btn btn-danger btn0 m-auto fs-5" href="http://localhost/web/Login.php" role="button">LOG IN</a>
                     </li>
                 </div>
             </div>
@@ -65,7 +65,7 @@
              </div>
 
             <div class="btn">
-                 <a class="btn btn-danger btn1 m-auto fs-3 animate__animated animate__fadeInUp animate__delay-1s" href="Login.php" role="button">PLAY NOW</a>
+                 <a class="btn btn-danger btn1 m-auto fs-3 animate__animated animate__fadeInUp animate__delay-1s" href="http://localhost/web/Login.php" role="button">PLAY NOW</a>
               </div>
             </div>
             </div>
@@ -249,9 +249,9 @@
                 <div class="col-lg-7 text-center m-auto">
               <p>Copyright © Mooton Online. Trademarks belong to their respective owners. All Rights Reserved. Copyright © Mobile Legend Bang Bang, Inc. "Mobile Legend Bang Bang" are trademarks,service marks and/or registered trademarks throughout the world. All rights reserved.</p>
               </div>
-               <div class="container d-flex">
-                      <a class="btn btn-danger btn0 m-auto fs-5" href="Login.php" role="button">LOG IN</a>
-                    </div>
+                <div class="container d-flex">
+                  <a class="btn btn-danger btn0 m-auto fs-5" href="http://localhost/web/Login.php" role="button">LOG IN</a>
+                </div>
               </div>
             </div>
           </div>

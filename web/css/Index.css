@@ -1,204 +1,200 @@
-
-*{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /*---------------------------- Navigation Bar ----------------------------*/
-.navbar-brand{
-	color: black;	
-	font-family: 'Bebas Neue', cursive;
+.navbar-brand {
+  color: black;
+  font-family: "Bebas Neue", cursive;
 }
-.navbar-brand:hover{
-	color: black;
-	transform: scale(1.1);
+.navbar-brand:hover {
+  color: black;
+  transform: scale(1.1);
 }
-.nav-link{
-	color: black;
-	margin-right: 10px;
-	margin-left: 10px;
-	font-size: 18px;
-	text-transform: uppercase;
-	width: 150px;
-	font-family: 'Fjalla One', sans-serif;
+.nav-link {
+  color: black;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+  width: 150px;
+  font-family: "Fjalla One", sans-serif;
 }
-.nav-link:hover{
-	color: black;
-	transform: scale(1.1);
+.nav-link:hover {
+  color: black;
+  transform: scale(1.1);
 }
-.btn0{
-	font-family: 'Bebas Neue', cursive;
-	height: 40px;
-	width: 100px;
-	outline: none;
-	border: none;
-	background: red;
-	color: white;
-	font-weight: 700;
-	margin-left: 30px;
-	box-shadow: 3px 3px 3px black;
+.btn0 {
+  font-family: "Bebas Neue", cursive;
+  height: 40px;
+  width: 100px;
+  outline: none;
+  border: none;
+  background: red;
+  color: white;
+  font-weight: 700;
+  margin-left: 30px;
+  box-shadow: 3px 3px 3px black;
 }
-.btn0:hover{
-	cursor: pointer;
-	background: gray;
-	transform: scale(1.1);
+.btn0:hover {
+  cursor: pointer;
+  background: gray;
+  transform: scale(1.1);
 }
 
 /*---------------------------- Section 1 ----------------------------*/
-.banner-image{
-	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,1,1)),url("img/video.gif"); 
-	background-size: cover;
-	background-position: 50% 50%;
+.banner-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 1, 1)),
+    url("../img/video.gif");
+  background-size: cover;
+  background-position: 50% 50%;
 }
-.banner-image h1{
-	font-family: 'Bebas Neue', cursive;
-	text-shadow: 3px 3px 3px black;
+.banner-image h1 {
+  font-family: "Bebas Neue", cursive;
+  text-shadow: 3px 3px 3px black;
 }
-.banner-image p{
-	color: #f5f5f5;
-	text-shadow: 3px 3px 3px black;
+.banner-image p {
+  color: #f5f5f5;
+  text-shadow: 3px 3px 3px black;
 }
-.btn1{
-	height: 50px;
-	width: 150px;
-	outline: none;
-	border: none;
-	background: red;
-	color: white;
-	font-weight: 700;
-	margin-left: 30px;
-	box-shadow: 3px 3px 3px black;
-	font-family: 'Bebas Neue', cursive;
+.btn1 {
+  height: 50px;
+  width: 150px;
+  outline: none;
+  border: none;
+  background: red;
+  color: white;
+  font-weight: 700;
+  margin-left: 30px;
+  box-shadow: 3px 3px 3px black;
+  font-family: "Bebas Neue", cursive;
 }
-.btn1:hover{
-	cursor: pointer;
-	background: gray;
-	transform: scale(1.1);
+.btn1:hover {
+  cursor: pointer;
+  background: gray;
+  transform: scale(1.1);
 }
 
 /*---------------------------- Section 2 ----------------------------*/
 
-#sec2{
-	 width: 100%;
-	 height: 100%;
-	 background-size:cover;
-	 background-position: 50% 50%;
+#sec2 {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
 }
-#sec2 h2, h1{
-	font-family: 'Bebas Neue', cursive;
-	font-weight: bold;
-	
+#sec2 h2,
+h1 {
+  font-family: "Bebas Neue", cursive;
+  font-weight: bold;
 }
-#sec2 hr{
-	background: red;
-	width: 50%;
-	border: 3px solid red;
+#sec2 hr {
+  background: red;
+  width: 50%;
+  border: 3px solid red;
 }
-#sub2{
-	width:100%;
-	height:100%;
-	background-image:linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0)),url("img/6d375cb8-e030-4779-afba-c09229bbc019.jpg"); 
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+#sub2 {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)),
+    url("../img/6d375cb8-e030-4779-afba-c09229bbc019.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-#sub2 h1{
-	text-shadow: 5px 5px 5px black; 
-
+#sub2 h1 {
+  text-shadow: 5px 5px 5px black;
 }
 
 /*---------------------------- Section 3 ----------------------------*/
-#sec3{
-	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)),url("img/bg4.jpg"); 
-	background-size: cover;
-	background-position: 50% 50%;
+#sec3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+    url("../img/bg4.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
 }
-#sec3 h1{
-	font-family: 'Bebas Neue', cursive;
-	font-weight: bold;
-	text-shadow: 3px 3px 3px black;
+#sec3 h1 {
+  font-family: "Bebas Neue", cursive;
+  font-weight: bold;
+  text-shadow: 3px 3px 3px black;
 }
-#sec3 img{
-	width:20%;
-	height:200px;
+#sec3 img {
+  width: 20%;
+  height: 200px;
 }
-.btn2{
-	height: 50px;
-	width: 190px;
-	outline: none;
-	border: none;
-	background: red;
-	color: white;
-	font-weight: 700;
-	margin-left: 30px;
-	box-shadow: 3px 3px 3px black;
-	font-family: 'Bebas Neue', cursive;
+.btn2 {
+  height: 50px;
+  width: 190px;
+  outline: none;
+  border: none;
+  background: red;
+  color: white;
+  font-weight: 700;
+  margin-left: 30px;
+  box-shadow: 3px 3px 3px black;
+  font-family: "Bebas Neue", cursive;
 }
-.btn2:hover{
-	cursor: pointer;
-	background: gray;
-	transform: scale(1.1);
+.btn2:hover {
+  cursor: pointer;
+  background: gray;
+  transform: scale(1.1);
 }
 
 /*---------------------------- Section 4 ----------------------------*/
-#sec4{
-	background:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)); 
-	width:100%;
-	height:100%;
+#sec4 {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  width: 100%;
+  height: 100%;
 }
-#sec4 img{
-	width:20%;
-	height:200px;
+#sec4 img {
+  width: 20%;
+  height: 200px;
 }
-#sec4 img:hover{
-	transform: scale(1.1);	
-	cursor:pointer;	
+#sec4 img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 /*---------------------------- Section 5 ----------------------------*/
-#sec5{
-	background-image:linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0)),url("img/9112b576009313.5c5ca8e8c45c3.jpg"); 
-	background-repeat: no-repeat;
+#sec5 {
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)),
+    url("../img/9112b576009313.5c5ca8e8c45c3.jpg");
+  background-repeat: no-repeat;
 }
-#sec5 h1{
-	font-weight: 900;
-	font-size: 34px;
-	padding-bottom: 5px;
+#sec5 h1 {
+  font-weight: 900;
+  font-size: 34px;
+  padding-bottom: 5px;
 }
-.card-body{
-	box-shadow: 0 0 20px 7px black;
+.card-body {
+  box-shadow: 0 0 20px 7px black;
 }
-#sec5 .card:hover{
-	transform:scale(1.1);
+#sec5 .card:hover {
+  transform: scale(1.1);
 }
-#sec5 .text{
-	font-family: 'Bebas Neue', cursive;
+#sec5 .text {
+  font-family: "Bebas Neue", cursive;
 }
-	
+
 /*---------------------------- Footer ----------------------------*/
 
-#footer{
-	width: 100%;
-	height: 45vh;
-
+#footer {
+  width: 100%;
+  height: 45vh;
 }
-#footer p{
-	font-size: 95%;
-	color: lightgray;
+#footer p {
+  font-size: 95%;
+  color: lightgray;
 }
-#footer img{
-	width: 100px;
-	height: 80px;
-	margin-left:30px
+#footer img {
+  width: 100px;
+  height: 80px;
+  margin-left: 30px;
 }
-#footer #pc{
-	width: 70px;
-	height: 60px;
-
+#footer #pc {
+  width: 70px;
+  height: 60px;
 }
-
-
-
-	

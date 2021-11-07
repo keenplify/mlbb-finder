@@ -52,3 +52,40 @@ function stopQueue() {
   BUTTONELEMENT.textContent = "Enqueue";
   TIMERELEMENT.innerHTML = "0";
 }
+
+function Alert_CheckMLBBData() {
+  $.ajax({
+    type: "GET",
+    url: `http://localhost/server/api/mlbbdata/getUserMLBBData.php?createdBy=${USER.user_id}`,
+  }).done((json) => {
+    const data = JSON.parse(json);
+    if (data?.length === 0) {
+      $("#alerts").append(`
+        <div class="alert alert-danger" role="alert" id="alert-nomlbbdata">
+          You are unable to queue because you currently don't have a linked Mobile Legends Account. <a href="http://localhost/web/mlbbdata.php">Click here to link an account.</a>
+        </div>
+      `);
+      $("#start_btn").attr("disabled", true);
+    } else {
+      const alert = $("#alert-nomlbbdata");
+      if (alert.length) alert.remove();
+      $("#start_btn").attr("disabled", false);
+    }
+  });
+}
+
+function Alert_CheckLobby() {
+  if (USER.currentLobbyUUID) {
+    $("#alerts").append(`
+      <div class="alert alert-primary" role="alert" id="alert-haslobby">
+        You are currently in a lobby.
+        <hr>
+        <a class="btn btn-primary" href="http://localhost/web/lobby.php?id=${USER.currentLobbyUUID}">Join Lobby</a>
+        <a class="btn btn-danger" href="http://localhost/server/api/lobby/leave.php">Leave Lobby</a>
+      </div>
+    `);
+  }
+}
+
+Alert_CheckMLBBData();
+Alert_CheckLobby();

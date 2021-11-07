@@ -59,3 +59,11 @@ html {
 .message_card_you {
   margin-left: auto;
 }
+
+.player-card {
+  background-color: lightgoldenrodyellow;
+  padding: 0.25em;
+  margin: 0.5em 0.25em;
+  border-radius: 0.25em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

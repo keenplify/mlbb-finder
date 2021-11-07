@@ -12,11 +12,11 @@
             <span class="oi oi-reload"></span>
             Refresh
           </button>
-          <button class="btn btn-primary mx-1" data-toggle="modal" data-target="#addPreferenceModal">
+          <button class="btn btn-primary mx-1" data-toggle="modal" data-target="#addPreferenceModal" onclick="$('#addPreferenceModal').modal('show')">
             <span class="oi oi-plus"></span>
             Add
           </button>
-          <button class="btn btn-danger mx-1" data-toggle="modal" data-target="#deletePreferenceModal">
+          <button class="btn btn-danger mx-1" data-toggle="modal" data-target="#deletePreferenceModal" onclick="$('#deletePreferenceModal').modal('show')">
             <span class="oi oi-minus"></span>
             Delete
           </button>
@@ -45,6 +45,10 @@
           <strong>Gamemode: </strong>
           <span id="gamemodeText"></span>
         </div>
+        <div class="col-md">
+          <strong>IGN: </strong>
+          <span id="mlbbdataText"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -58,6 +62,7 @@
   const gamemodeText = document.querySelector("#gamemodeText");
   const primaryRoleText= document.querySelector("#primaryRoleText");
   const secondaryRoleText = document.querySelector("#secondaryRoleText");
+  const mlbbdataText = document.querySelector("#mlbbdataText");
 
   let selectedPreference;
   let preferences = [];
@@ -99,12 +104,23 @@
       gamemodeText.innerHTML= "N/A";
       primaryRoleText.innerHTML = "N/A";
       secondaryRoleText.innerHTML = "N/A";
+      mlbbdataText.innerHTML = "N/A";
     }
 
     selectedPreference = Number.parseInt(currentPreference.preference_id);
     gamemodeText.innerHTML= currentPreference.gameMode;
     primaryRoleText.innerHTML = currentPreference.primaryRole;
     secondaryRoleText.innerHTML = currentPreference.secondaryRole;
+
+    $.ajax({
+      method: "GET",
+      url: `http://localhost/server/api/mlbbdata/read.php?data_id=${currentPreference.mlbbdata_id}`
+    }).done(data => {
+      const obj = JSON.parse(data);
+      
+      mlbbdataText.innerHTML = obj === null ? "Account not found!":obj.ign;
+    })
+    
   }
 
   window.addEventListener('load', function () {

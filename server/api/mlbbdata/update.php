@@ -1,12 +1,3 @@
-<!-- Request Type: POST
-
-contents: 
-data_id
-mlid - string
-ign - string
-
-output: json encoded mlbbdata. -->
-
 <?php
 require_once("../../config/db.php");
 
@@ -19,7 +10,7 @@ if (
     $mlid = filter_var($_POST['mlid']);
     $ign = filter_var($_POST['ign']);
 
-    $sql = "UPDATE 'tbl_mlbbdata' SET mlid = '$mlid', ign = '$ign' WHERE data_id = '$data_id'";
+    $sql = "UPDATE `tbl_mlbbdata` SET `mlid`='$mlid', `ign`='$ign' WHERE `data_id`=$data_id";
 
     $result = $mysqli->query($sql);
 
@@ -27,7 +18,7 @@ if (
         echo "MLBB Data updated successfully";
     } else {
         print_r($mysqli->error);
-        http_response_code(400);
+        http_response_code(500);
     }
 } else {
     http_response_code(400);

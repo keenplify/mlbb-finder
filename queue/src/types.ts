@@ -42,6 +42,7 @@ export interface Preference {
   primaryRole: string;
   secondaryRole: string;
   gameMode: GameModes;
+  mlbbdata_id: number;
   createdBy: number;
 }
 

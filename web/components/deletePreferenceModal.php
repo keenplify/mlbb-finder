@@ -1,4 +1,4 @@
-<!-- Modal -->
+<!-- Delete Modal -->
 
 <form id="deletePreferenceForm">
   <div class="modal fade" id="deletePreferenceModal" tabindex="-1" role="dialog" aria-labelledby="deletePreferenceLabel" aria-hidden="true">
@@ -11,7 +11,7 @@
           <p>Are you sure to delete your current preference?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#deletePreferenceModal').modal('hide')">Close</button>
           <button type="submit" class="btn btn-primary">
             Delete
           </button>

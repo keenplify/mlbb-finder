@@ -1,18 +1,17 @@
 <?php
 require("./helpers/cURL.php");
 
-$me = false;
 $result = false;
 
 // Check if token is valid
-if (isset($_SESSION["user"])) {
-  $token = $_COOKIE["token"];
+if (isset($_COOKIE["token"])) {
   $result = CallAPI("GET", "http://localhost/server/api/users/me.php", false, array(
-    "Authorization: Bearer " . $token
+    "Authorization: Bearer " . $_COOKIE["token"]
   ));
+  
 
   if ($result) {
-    header('Location: /web/dashboard');
+    header('Location: http://localhost/web/dashboard.php');
   }
 }
 
@@ -52,7 +51,6 @@ if (isset($_SESSION["user"])) {
 </head>
 
 <body>
-
   <!--- Log In Form --->
   <div class="container">
     <section class="login m-auto py-5">
@@ -117,7 +115,7 @@ if (isset($_SESSION["user"])) {
                     output.querySelector("#output").innerHTML = data
                     output.style.visibility = "visible"
                   } else {
-                    window.location.href = "/web/dashboard"
+                    window.location.href = "/web/dashboard.php"
                   }
                 }
               })

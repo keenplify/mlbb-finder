@@ -36,8 +36,15 @@ export const Listener = async (
       return __authors.indexOf(item) == pos;
     });
 
-    const message_authors = await connection.query(
-      `SELECT * FROM tbl_users WHERE user_id IN (${filtered.join(",")})`
+    const message_authors =
+      filtered.length > 0
+        ? await connection.query(
+            `SELECT * FROM tbl_users WHERE user_id IN (${filtered.join(",")})`
+          )
+        : null;
+
+    const lobby = await connection.query(
+      `SELECT * FROM tbl_lobby WHERE uuid='${__user.currentLobbyUUID}'`
     );
 
     client.join(__user.currentLobbyUUID);
@@ -45,7 +52,8 @@ export const Listener = async (
       cb({
         messages: messages[0],
         __user,
-        message_authors: message_authors[0],
+        message_authors: message_authors === null ? [] : message_authors[0],
+        lobby: lobby[0],
       });
   });
 

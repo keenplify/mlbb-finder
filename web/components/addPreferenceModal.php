@@ -41,10 +41,25 @@
                 <option value="Support">Support</option>
               </select>
             </div>
+
+            <div class="form-group my-2">
+              <label for="mlbbdata_id">MLBB Account:</label>
+              <select class="custom-select" name="mlbbdata_id" id="addPreference_mlbbdataId">
+                <?php 
+                $mlbbdataArray = json_decode(CallAPI("GET", "http://localhost/server/api/mlbbdata/getUserMLBBData.php?createdBy=".$me->user_id));
+                
+                foreach ($mlbbdataArray as $mlbbdata) {
+                  echo "
+                  <option value='$mlbbdata->data_id'>$mlbbdata->ign</option>
+                  ";
+                }
+              ?>
+              </select>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#addPreferenceModal').modal('hide')">Close</button>
           <button type="submit" class="btn btn-primary">
             Add
           </button>
@@ -60,10 +75,18 @@
   const addPreference_gameMode = document.querySelector("#addPreference_gameMode");
   const addPreference_primaryRole = document.querySelector("#addPreference_primaryRole");
   const addPreference_secondaryRole = document.querySelector("#addPreference_secondaryRole");
+  const addPreference_mlbbdataId = document.querySelector("#addPreference_mlbbdataId");
 
   _addForm.onsubmit = (event) => {
     event.preventDefault();
 
+    console.log({
+        gameMode: addPreference_gameMode.value,
+        primaryRole: addPreference_primaryRole.value,
+        secondaryRole: addPreference_secondaryRole.value,
+        addPreference_mlbbdataId: addPreference_mlbbdataId.value,
+        createdBy: USER.user_id,
+      })
      $.ajax({
       url: "http://localhost/server/api/preferences/add.php",
       method: "post",
@@ -71,6 +94,7 @@
         gameMode: addPreference_gameMode.value,
         primaryRole: addPreference_primaryRole.value,
         secondaryRole: addPreference_secondaryRole.value,
+        mlbbdata_id: addPreference_mlbbdataId.value,
         createdBy: USER.user_id,
       },
       success: (data) => {

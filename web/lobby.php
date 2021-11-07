@@ -15,7 +15,7 @@ $me = $_SESSION["user"];
 <html>
 
   <head>
-    <title>Dashboard - Gamebuddies</title>
+    <title>Lobby - Gamebuddies</title>
     <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
     <meta http-equiv="pragma" content="no-cache" />
     <!-- JQUERY -->
@@ -37,7 +37,8 @@ $me = $_SESSION["user"];
     <div class="container">
       <div class="main row mx-2">
         <div class="col-md-4 p-2">
-          Online Users
+          Lobby Users
+          <div id="users-container"></div>
         </div>
         <div class="col-md-8 bg-light">
           <div id="messages_container" class="messages_container"></div>
