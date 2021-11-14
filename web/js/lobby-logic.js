@@ -32,7 +32,6 @@ function renderMessages() {
 
 socket.emit("join_lobby", USER, (data) => {
   LOBBY = JSON.parse(data.lobby[0].json);
-  console.log(LOBBY);
   LOBBYMESSAGEAUTHORS = [...LOBBYMESSAGEAUTHORS, ...data.message_authors];
   USER = data.__user;
 
@@ -56,27 +55,25 @@ function scrollSmoothToBottom(id) {
 
 async function setLobbyData() {
   const data = await Promise.all(
-    LOBBY.players.map(async (player) => {
+    Object.keys(LOBBY.players).map(async (playerRole) => {
+      const player = LOBBY.players[playerRole];
       const mlbbdataJSON = await fetch(
         "http://localhost/server/api/mlbbdata/read.php?data_id=" +
           player.preference.mlbbdata_id
       );
+      const userJSON = await fetch(
+        "http://localhost/server/api/users/index.php?user_id=" +
+          player.preference.createdBy
+      );
 
+      const user = JSON.parse(await userJSON.text());
       const mlbbdata = JSON.parse(await mlbbdataJSON.text());
       return `
           <div class="player-card">
             <h6>
-              ${player.user.username}
-              
+              ${user.username}
+              <span class="badge bg-primary">${playerRole}</span>
             </h6>
-            <div>
-              <span>Primary:</span>
-              <span class="badge bg-primary">${player.preference.primaryRole}</span>
-            </div>
-            <div>
-              <span>Secondary:</span>
-              <span class="badge bg-secondary">${player.preference.secondaryRole}</span>
-            </div>
             <div>
               <span>IGN: <span class="badge bg-success">${mlbbdata.ign}</span></span>
               <span>MLID: <span class="badge bg-danger">${mlbbdata.mlid}</span></span>

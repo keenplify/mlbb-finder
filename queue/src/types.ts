@@ -46,13 +46,17 @@ export interface Preference {
   createdBy: number;
 }
 
+export type LobbyPlayers = {
+  [key in string]?: {
+    queue: Queue;
+    preference: Preference;
+    clientData?: ClientData;
+  }; //Queue number
+};
+
 export interface Lobby {
-  players: {
-    [key in string]?: {
-      queue: Queue;
-      preference: Preference;
-    }; //Queue number
-  };
+  players: LobbyPlayers;
+  id: string;
   gamemode: GameModes;
 }
 

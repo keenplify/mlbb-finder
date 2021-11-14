@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+import { uuid } from "uuidv4";
 import { filter } from "../helpers/filter";
 import { Lobby, Preference, Queue } from "../types";
 
@@ -51,7 +53,11 @@ export const mmRole = (
       return true;
     } else if (createRoomAtFail) {
       //IF WALA NA TALAGA, GAWA KA NALANG SARILI MONG ROOM LONER
-      const newRoom: Lobby = { players: {}, gamemode: preference.gameMode };
+      const newRoom: Lobby = {
+        players: {},
+        gamemode: preference.gameMode,
+        id: v4(),
+      };
       newRoom.players[preference.primaryRole] = { queue: q, preference };
 
       potentialLobbies.push(newRoom);

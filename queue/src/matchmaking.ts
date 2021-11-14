@@ -1,4 +1,4 @@
-import { ClientData, Lobby, Preference, Queue } from "./types";
+import { ClientData, Lobby, LobbyPlayers, Preference, Queue } from "./types";
 import { useConnection } from "./helpers/connection";
 import dayjs from "dayjs";
 import { mmRole } from "./matchmaking-logics/roles";
@@ -68,10 +68,12 @@ export const MatchmakingLoop = async (
 
   // AFTER THE LOOP, TRIM ROOMS TO ONLY HAVE 5 PLAYERS OF ANY ROLES
   setTimeout(async () => {
-    const lobbiesFormed = potentialLobbies
+    const lobbiesFormed: Lobby[] = potentialLobbies
       .map((lobby) => {
         const keys = Object.keys(lobby.players);
         if (keys.length >= 5) {
+          let players: LobbyPlayers = {};
+
           const validPlayers = keys
             .map((key, i) => {
               if (i <= 4) return lobby.players[key];
@@ -84,9 +86,17 @@ export const MatchmakingLoop = async (
               };
             });
 
+          validPlayers.forEach((validPlayer) => {
+            if (
+              !Object.keys(players).includes(validPlayer.preference.primaryRole)
+            ) {
+              players[validPlayer.preference.primaryRole] = validPlayer;
+            }
+          });
+
           return {
             ...lobby,
-            players: validPlayers,
+            players,
             id: v4(),
           };
         }
@@ -96,7 +106,7 @@ export const MatchmakingLoop = async (
     let queues: Queue[] = [];
 
     lobbiesFormed.map((lobby) => {
-      lobby.players.forEach((player) => {
+      Object.values(lobby.players).forEach((player) => {
         player.clientData.client.emit("lobby_created", lobby.id);
         queues.push(player.queue);
       });
