@@ -1,6 +1,12 @@
 <?php
 require_once("../../config/db.php");
 session_start();
+
+if (!isset($_SESSION['user'])) {
+  header("Location: http://localhost/web/");
+  return;
+}
+
 $user_id = $_SESSION['user']->user_id;
 
 $sql = "
@@ -15,4 +21,3 @@ if (!$result) {
   return;
 }
 
-header("Location: http://localhost/web/dashboard.php");
