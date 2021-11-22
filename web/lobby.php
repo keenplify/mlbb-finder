@@ -3,7 +3,7 @@ session_start();
 require("helpers/cURL.php");
 
 if (!isset($_SESSION["user"])) {
-  header('Location: localhost/web/Login.php');;
+  header('Location: http://localhost/web/Login.php');;
   return;
 }
 
