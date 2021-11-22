@@ -15,6 +15,7 @@ if (isset($_COOKIE["token"])) {
     header('Location: http://localhost/web/index.php');
   } else {
     $me = json_decode($result);
+    $_SESSION["user"] = $me;
   }
 } else {
   header('Location: http://localhost/web/index.php');
