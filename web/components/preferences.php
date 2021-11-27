@@ -122,6 +122,7 @@
       primaryRoleText.innerHTML = "N/A";
       secondaryRoleText.innerHTML = "N/A";
       mlbbdataText.innerHTML = "N/A";
+      return
     }
 
     selectedPreference = Number.parseInt(currentPreference.preference_id);
