@@ -7,7 +7,7 @@ if (
 ) {
   $user_id = filter_var($_POST['createdBy']);
   $friendUserId = filter_var($_POST['friendUserId']);
-  
+
   
   $sql = "
     INSERT INTO `tbl_friend` (friendUserId, createdBy, isAccepted)
@@ -19,6 +19,7 @@ if (
 
   if ($res) {
     echo "Friend added successfully";
+    if (isset($_POST['redirect'])) header('Location: ' . $_POST['redirect']);
   } else {
     print_r($mysqli->error);
     http_response_code(400);

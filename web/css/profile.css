@@ -1,0 +1,32 @@
+.avatar,
+.avatar-sm {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.avatar-sm {
+  width: 2rem !important;
+  height: 2rem !important;
+  font-size: 1rem !important;
+}
+
+.profile-cover-container {
+  height: 20em;
+  overflow: hidden;
+  display: flex;
+  marign: auto;
+  background-color: #000;
+}
+
+.profile-cover {
+  margin: auto;
+  object-fit: cover;
+  height: 20em;
+}

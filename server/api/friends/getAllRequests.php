@@ -4,11 +4,13 @@ require_once("../../config/db.php");
 if (
   isset($_GET['user_id'])
 ) {
-  $createdBy = filter_var($_GET['user_id']);
+  $user_id = filter_var($_GET['user_id']);
+  
   $sql = "
     SELECT * FROM `tbl_friend`
-    WHERE (createdBy = '$createdBy' AND isAccepted = 1)
-    OR (friendUserId = '$createdBy' AND isAccepted = 1)
+    LEFT JOIN `tbl_users`
+    ON tbl_users.user_id = tbl_friend.friendUserId
+    WHERE isAccepted = 0 AND friendUserId='$user_id'
   ";
 
   $result = $mysqli->query($sql);

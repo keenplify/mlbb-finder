@@ -65,7 +65,7 @@
             echo BadgeComponent($context, $ticket->status);
           ?>
         </h3>
-        <a href="<?php echo getOrigin_URL()?>/profile/view.php?user_id=<?php echo $ticket->user_id ?>">
+        <a href="<?php echo getOrigin_URL()?>/web/profile/view.php?user_id=<?php echo $ticket->user_id ?>">
           <span>Created By <?php echo $ticket->lastname?>, <?php echo $ticket->firstname?></span>
           <span class="badge badge-info">@<?php echo $ticket -> username ?></span>
         </a>

@@ -1,3 +1,5 @@
+<?php require_once("../helpers/url.php"); ?>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -9,3 +11,6 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Iconic -->
+<link href="<?php getOrigin_URL() ?>/web/img/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
