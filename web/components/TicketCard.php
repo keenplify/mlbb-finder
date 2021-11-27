@@ -8,6 +8,10 @@ function TicketComponent($ticket) {
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">'. $ticket[2]. " " . BadgeComponent(mapStatusToBootstrapContext($ticket[4]), $ticket[4]) .'</h5>
+          <p>
+            <span>Created By '.$ticket[9].', '. $ticket[8] .'</span>
+            <span class="badge badge-info">@'. $ticket[11] .'</span>
+          </p>
           <p class="card-text">'. mb_strimwidth($ticket[3], 0, 100, "...") .'</p>
         </div>
       </div>

@@ -7,6 +7,7 @@
 
   $me = authenticate(false);
   $getAllTickets = CallAPI("GET", "http://localhost/server/api/tickets/getAll.php", false);
+
   $tickets = json_decode($getAllTickets);
 ?>
 
