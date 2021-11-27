@@ -36,6 +36,7 @@ socket.emit("join_lobby", USER, (data) => {
   USER = data.__user;
 
   setMessages(data.messages);
+  document.querySelector("#gamemode-text").innerHTML = LOBBY.gamemode;
   setLobbyData();
 });
 
@@ -68,6 +69,7 @@ async function setLobbyData() {
 
       const user = JSON.parse(await userJSON.text());
       const mlbbdata = JSON.parse(await mlbbdataJSON.text());
+
       let backgroundURL = "";
 
       if (playerRole == "Tank")

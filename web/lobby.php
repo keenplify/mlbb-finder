@@ -39,7 +39,13 @@ $me = $_SESSION["user"];
         <div class="col-md-4 p-2">
         </div>
         <div class="col-md-4 p-2 lobby-details">
-          Lobby Users
+          <p>
+            Lobby Users
+          </p>
+          <p>
+            <span>Gamemode:</span>
+            <span id="gamemode-text"></span>
+          </p>
           <div id="users-container"></div>
         </div>
         <div class="col-md-8 bg-light">
