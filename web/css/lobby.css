@@ -21,6 +21,7 @@ html {
   padding: 1em;
   border-radius: 1em 1em 0 0;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 999;
 }
 
 #newMessageTextArea {
@@ -73,7 +74,6 @@ html {
 
 .lobby-details {
   position: absolute;
-  z-index: -1;
 }
 
 #users-container {

@@ -79,7 +79,7 @@ async function setLobbyData() {
       return `
           <div style="background: url('${backgroundURL}')" class="player-card" >
             <h6>
-              ${user.username}
+              <a href="http://localhost/web/profile/view.php?user_id=${user.user_id}" class="link-light text-decoration-none" >${user.username}</a>
               <span class="badge bg-primary">${playerRole}</span>
             </h6>
             <div>
