@@ -3,11 +3,12 @@
   require_once("../helpers/cURL.php");
   require_once("../helpers/mapStatusToBootstrapContext.php");
   require_once("../helpers/authenticate.php");
+  require_once("../helpers/url.php");
+
   require_once("../components/Badge.php");
   require_once("../components/DeleteTicket.php");
   require_once("../components/EditTicket.php");
   require_once("../components/ChangeTicketStatus.php");
-  require_once("../helpers/url.php");
   
   $me = authenticate(false);
 
