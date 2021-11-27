@@ -2,11 +2,11 @@
 require_once("../../config/db.php");
 
 if (
-  isset($_POST['createdBy']) &&
+  isset($_POST['created_by']) &&
   isset($_POST['title']) &&
   isset($_POST['body']) 
 ) {
-  $createdBy = filter_var($_POST['createdBy']);
+  $createdBy = filter_var($_POST['created_by']);
   $title = filter_var($_POST['title']);
   $body = filter_var($_POST['body']);
   
@@ -20,6 +20,7 @@ if (
 
   if ($res) {
     echo "Ticket added successfully";
+    if (isset($_POST['redirect'])) header('Location: ' . $_POST['redirect']);
   } else {
     print_r($mysqli->error);
     http_response_code(400);

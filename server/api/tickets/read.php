@@ -2,13 +2,17 @@
 require_once("../../config/db.php");
 
 if (
-  isset($_POST['username'])
+  isset($_GET['ticket_id'])
 ) {
-  $createdBy = filter_var($_POST['username']);
+  $ticket_id = filter_var($_GET['ticket_id']);
 
   
   $sql = "
-    SELECT * FROM `tbl_tickets` WHERE createdBy='$createdBy'
+    SELECT *
+    FROM `tbl_tickets`
+    LEFT JOIN tbl_users
+    ON tbl_tickets.createdBy = tbl_users.user_id
+    WHERE tbl_tickets.ticket_id=$ticket_id
   ";
 
 
@@ -20,8 +24,8 @@ if (
     return;
   }
 
-  echo json_encode($result->fetch_object("createdBy"));
+  echo json_encode($result->fetch_object());
 } else {
-  echo "Ticket not found!";
+  echo "No ticket_id received!";
   http_response_code(401);
 }

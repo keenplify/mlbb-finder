@@ -68,8 +68,14 @@ async function setLobbyData() {
 
       const user = JSON.parse(await userJSON.text());
       const mlbbdata = JSON.parse(await mlbbdataJSON.text());
+      let backgroundURL = "";
+
+      if (playerRole == "Tank")
+        backgroundURL =
+          "https://gumlet.assettype.com/afkgaming%2Fimport%2Fmedia%2Fimages%2F55308-Tanks%20MLBB.jpg?format=auto";
+
       return `
-          <div class="player-card">
+          <div style="background: url('${backgroundURL}')" class="player-card" >
             <h6>
               ${user.username}
               <span class="badge bg-primary">${playerRole}</span>
