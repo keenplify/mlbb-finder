@@ -1,6 +1,7 @@
 <?php
 require_once("../components/Badge.php");
 require_once("../helpers/mapStatusToBootstrapContext.php");
+require_once("../helpers/url.php");
 
 function ChangeTicketStatusComponent($ticket) {
   return '
@@ -19,10 +20,12 @@ function ChangeTicketStatusComponent($ticket) {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form>
+          <form method="POST" action="'. getOrigin_URL() .'/server/api/tickets/changeStatus.php">
             <div class="modal-body">
               <p>Current status: '. BadgeComponent(mapStatusToBootstrapContext($ticket->status), $ticket->status) .'</p>
               <label for="status">Change status to:</label>
+              <input type="hidden" name="ticket_id" value="'. $ticket->ticket_id .'">
+              <input type="hidden" name="redirect" value="'. getFull_URL() .'">
               <select name="status" id="status">
                 <option value="OPEN">OPEN</option>
                 <option value="PENDING">PENDING</option>

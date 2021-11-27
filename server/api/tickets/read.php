@@ -8,7 +8,11 @@ if (
 
   
   $sql = "
-    SELECT * FROM `tbl_tickets` WHERE ticket_id='$ticket_id'
+    SELECT *
+    FROM `tbl_tickets`
+    LEFT JOIN tbl_users
+    ON tbl_tickets.createdBy = tbl_users.user_id
+    WHERE tbl_tickets.ticket_id=$ticket_id
   ";
 
 

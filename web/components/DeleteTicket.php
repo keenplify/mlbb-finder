@@ -1,4 +1,5 @@
 <?php
+require_once("../helpers/url.php");
 
 function DeleteTicketComponent($ticket) {
   return '
@@ -22,7 +23,11 @@ function DeleteTicketComponent($ticket) {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-danger" id="deleteTicketButton">Delete</button>
+            <form method="POST" action="'. getOrigin_URL() .'/server/api/tickets/delete.php">
+              <input type="hidden" name="ticket_id" value="'. $ticket -> ticket_id .'"/>
+              <input type="hidden" name="redirect" value="'. getOrigin_URL() .'/web/tickets"/>
+              <button type="submit" class="btn btn-danger" id="deleteTicketButton">Delete</button>
+            </form>
           </div>
         </div>
       </div>

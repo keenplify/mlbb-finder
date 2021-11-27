@@ -1,7 +1,10 @@
 <?php
 require_once("../../config/db.php");
 
-$sql = "SELECT * FROM `tbl_tickets`";
+$sql = "
+  SELECT * FROM `tbl_tickets`
+  ORDER BY updatedAt DESC
+;";
 
 $result = $mysqli->query($sql);
 

@@ -7,7 +7,8 @@
   require_once("../components/DeleteTicket.php");
   require_once("../components/EditTicket.php");
   require_once("../components/ChangeTicketStatus.php");
-
+  require_once("../helpers/url.php");
+  
   $me = authenticate(false);
 
   if (isset($_GET['ticket_id'])) {
@@ -20,6 +21,7 @@
     if (!isset($ticket)) {
       echo "Ticket not found.";
       http_response_code(404);
+      return;
     } 
 
   } else {
@@ -34,14 +36,16 @@
 
     <!---------------------------- CSS---------------------------->
     <link rel="stylesheet" type="text/css" href="../css/tickets.css">
+
+    <!------------------------- LOGIC ---------------------------->
+    <script src="../js/ticket-logic.js" defer></script>
   </head>
   <body>
-    
     <div class="container">
       <div class="d-flex flex-row-reverse">
         <div class="btn-group">
           <?php 
-            if ($me->user_id == $ticket->createdBy) echo EditTicketComponent($ticket);
+            if ($me->user_id == $ticket->createdBy) echo EditTicketComponent($me, $ticket);
           ?>
           <?php
             if ($me->type == "ADMIN") echo ChangeTicketStatusComponent($ticket);
@@ -60,6 +64,10 @@
             echo BadgeComponent($context, $ticket->status);
           ?>
         </h3>
+        <a href="<?php echo getOrigin_URL()?>/profile/view.php?user_id=<?php echo $ticket->user_id ?>">
+          <span>Created By <?php echo $ticket->lastname?>, <?php echo $ticket->firstname?></span>
+          <span class="badge badge-info">@<?php echo $ticket -> username ?></span>
+        </a>
         <p> <?php echo $ticket->body;?> </p>
       </div>
     </div>
