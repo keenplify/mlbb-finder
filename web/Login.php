@@ -22,6 +22,8 @@ if (isset($_COOKIE["token"])) {
 
 <head>
 <link rel="shortcut icon" type="text/css" href="img/Logo.jpg"> 
+<!---------------------------- CSS---------------------------->
+
   <!-- Required meta tags -->
   <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
   <meta http-equiv="pragma" content="no-cache" />
@@ -50,7 +52,7 @@ if (isset($_COOKIE["token"])) {
   <title>Login | Mobile Legends: Bang Bang Player Finder Web Application</title>
 </head>
 
-<body>
+<body class="bg-dark">
   <!--- Log In Form --->
   <div class="container">
     <section class="login m-auto py-5">

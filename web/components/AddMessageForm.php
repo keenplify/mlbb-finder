@@ -1,8 +1,8 @@
 
-<form id="addMessageForm">
+<form id="addMessageForm" class="bg-dark">
   <div class="row">
     <div class="col-10">
-      <textarea id="newMessageTextArea" name="newMessageTextArea" placeholder="Say something..." class="form-control rounded-0" onkeydown="AutoSubmit()"></textarea>
+      <textarea id="newMessageTextArea" name="newMessageTextArea" placeholder="Say something..." class="form-control rounded-0 bg-dark text-white" onkeydown="AutoSubmit()"></textarea>
     </div>
     <div class="col-2">
       <button class="btn btn-success w-100 h-100">

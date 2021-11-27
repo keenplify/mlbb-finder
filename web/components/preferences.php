@@ -1,61 +1,78 @@
+<!---------------------------- CSS---------------------------->
+<link rel="stylesheet" type="text/css" href="css/preference.css">
 
 <?php require "addPreferenceModal.php" ?>
 <?php require "deletePreferenceModal.php" ?>
 
-<div class="row m-3">
-  <div class="col-md-6">
-    <div class="card-body border">
-      <div class="d-flex align-items-center">
-        <h5 class="flex-grow-1">Preference Profiles</h5>
-        <div class="d-flex">
-          <button class="btn btn-success mx-1" onclick="listUserPreferences()">
-            <span class="oi oi-reload"></span>
-            Refresh
-          </button>
-          <button class="btn btn-primary mx-1" data-toggle="modal" data-target="#addPreferenceModal" onclick="$('#addPreferenceModal').modal('show')">
-            <span class="oi oi-plus"></span>
-            Add
-          </button>
-          <button class="btn btn-danger mx-1" data-toggle="modal" data-target="#deletePreferenceModal" onclick="$('#deletePreferenceModal').modal('show')">
-            <span class="oi oi-minus"></span>
-            Delete
-          </button>
-        </div>
-      </div>
-      <div>
-        <div class="form-group my-2">
-          <label for="preferenceProfileSelect">Select Preference:</label>
-          <select id="preferenceProfileSelect" class="custom-select" name="preferenceProfileSelect">
-            <option selected disabled>No Preference!</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <strong>Primary Role: </strong>
-          <span id="primaryRoleText"></span>
-        </div>
-        <div class="col-md-6">
-          <strong>Secondary Role: </strong>
-          <span id="secondaryRoleText"></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md">
-          <strong>Gamemode: </strong>
-          <span id="gamemodeText"></span>
-        </div>
-        <div class="col-md">
-          <strong>IGN: </strong>
-          <span id="mlbbdataText"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <p class="text-muted">The role preferences will be removed after 2 minutes at queue for faster queue time.</p>
-  </div>
-</div>
+
+
+            <div class="container-fluid m-auto" data-aos="fade-up" data-aos-duration="1000" id="sec6">
+            
+                <div class="row">                 
+                    <div class="col-md-9 m-auto ">
+                    <div class="showcase-left py-3">
+
+                    <div class="card-body bg-dark">
+  
+              <h5 class="display-6">Preference Profiles</h5>
+              <div class="d-flex gap-1">
+                <button class="btn btn-success" onclick="listUserPreferences()">
+                  <span class="oi oi-reload"></span>
+                  Refresh
+                </button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#addPreferenceModal" onclick="$('#addPreferenceModal').modal('show')">
+                  <span class="oi oi-plus"></span>
+                  Add
+                </button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#deletePreferenceModal" onclick="$('#deletePreferenceModal').modal('show')">
+                  <span class="oi oi-minus"></span>
+                  Delete
+                </button>
+              </div>
+            <div class="container-fluid m-auto py-2">
+              <div class="form-group">
+                <label for="preferenceProfileSelect" class="fs-5">Select Preference:</label>
+                <select id="preferenceProfileSelect" class="custom-select form-select " name="preferenceProfileSelect">
+                  <option selected disabled>No Preference!</option>
+                </select>
+                    </div>
+                    </div>
+                    <div class="row m-auto">
+                      <div class="col-md-6">
+                        <strong>Primary Role: </strong>
+                        <span id="primaryRoleText"></span>
+                      </div>
+                      <div class="col-md-6">
+                        <strong>Secondary Role: </strong>
+                        <span id="secondaryRoleText"></span>
+                      </div>
+                    </div>
+                    <div class="row m-auto">
+                      <div class="col-md">
+                        <strong>Gamemode: </strong>
+                        <span id="gamemodeText"></span>
+                      </div>
+                      <div class="col-md">
+                        <strong>IGN: </strong>
+                        <span id="mlbbdataText"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="container text-center">
+                  <p class="text-muted">The role preferences will be removed after 2 minutes at queue for faster queue time.</p>
+                </div>
+              </div>
+              </div>
+
+                    </div>
+                    </div>
+
+
+
+
+           
+
 
 <script defer>
   const preferenceProfileSelect = document.querySelector("#preferenceProfileSelect");

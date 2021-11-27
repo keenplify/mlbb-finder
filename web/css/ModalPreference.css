@@ -1,0 +1,10 @@
+label{
+    font-size: 20px;
+}
+h4{
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: 3px 3px 3px black;
+}
+select{
+    background-color: grey;
+}

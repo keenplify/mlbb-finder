@@ -77,7 +77,7 @@ function Alert_CheckMLBBData() {
 function Alert_CheckLobby() {
   if (USER.currentLobbyUUID) {
     $("#alerts").append(`
-      <div class="alert alert-primary" role="alert" id="alert-haslobby">
+      <div class="alert alert-primary align-items-end" role="alert" id="alert-haslobby">
         You are currently in a lobby.
         <hr>
         <a class="btn btn-primary" href="http://localhost/web/lobby.php?id=${USER.currentLobbyUUID}">Join Lobby</a>

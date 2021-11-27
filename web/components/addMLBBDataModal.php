@@ -1,11 +1,14 @@
 <!-- Modal -->
 
+ <!-- Log In CSS-->
+ <link rel="stylesheet" type="text/css" href="css/Mlbbdata.css">
+
 <form id="addMLBBDataForm">
   <div class="modal fade" id="addMLBBDataModal" tabindex="-1" role="dialog" aria-labelledby="addMLBBDataLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content bg-dark">
         <div class="modal-header">
-          <h5 class="modal-title" id="addMLBBDataLabel">Add MLBB Account</h5>
+          <h5 class="modal-title display-6" id="addMLBBDataLabel">Add MLBB Account</h5>
         </div>
         <div class="modal-body">
           <div>
@@ -28,7 +31,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#addMLBBDataModal').modal('hide')">Close</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="$('#addMLBBDataModal').modal('hide')">Close</button>
               <button type="submit" class="btn btn-primary">
                 Submit
               </button>

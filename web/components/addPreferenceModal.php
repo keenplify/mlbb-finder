@@ -1,17 +1,20 @@
 <!-- Modal -->
+  <!---------------------------- CSS---------------------------->
+  <link rel="stylesheet" type="text/css" href="css/ModalPreference.css">
+
 
 <form id="addPreferenceForm">
   <div class="modal fade" id="addPreferenceModal" tabindex="-1" role="dialog" aria-labelledby="addPreferenceLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content bg-dark text-white">
         <div class="modal-header">
-          <h5 class="modal-title" id="addPreferenceLabel">Add Preference Profile</h5>
+          <h4 class="modal-title " id="addPreferenceLabel">Add Preference Profile</h4>
         </div>
         <div class="modal-body">
           <div id="preferences">
             <div class="form-group my-2">
               <label for="gameMode">Game Mode:</label>
-              <select class="custom-select" name="gameMode" id="addPreference_gameMode">
+              <select class="custom-select form-select  bg-secondary text-white" name="gameMode" id="addPreference_gameMode">
                 <option value="Classic" selected>Classic</option>
                 <option value="Ranked">Ranked</option>
                 <option value="Brawl">Brawl</option>
@@ -20,7 +23,7 @@
 
             <div class="form-group my-2">
               <label for="primaryRole">Primary Role:</label>
-              <select class="custom-select" name="primaryRole" id="addPreference_primaryRole">
+              <select class="custom-select form-select bg-secondary text-white" name="primaryRole" id="addPreference_primaryRole">
                 <option value="Tank" selected>Tank</option>
                 <option value="Fighter">Fighter</option>
                 <option value="Marksman">Marksman</option>
@@ -32,7 +35,7 @@
 
             <div class="form-group my-2">
               <label for="secondaryRole">Secondary Role:</label>
-              <select class="custom-select" name="secondaryRole" id="addPreference_secondaryRole">
+              <select class="custom-select form-select bg-secondary text-white" name="secondaryRole" id="addPreference_secondaryRole">
                 <option value="Tank">Tank</option>
                 <option value="Fighter" selected>Fighter</option>
                 <option value="Marksman">Marksman</option>
@@ -44,7 +47,7 @@
 
             <div class="form-group my-2">
               <label for="mlbbdata_id">MLBB Account:</label>
-              <select class="custom-select" name="mlbbdata_id" id="addPreference_mlbbdataId">
+              <select class="custom-select form-select bg-secondary text-white" name="mlbbdata_id" id="addPreference_mlbbdataId">
                 <?php 
                 $mlbbdataArray = json_decode(CallAPI("GET", "http://localhost/server/api/mlbbdata/getUserMLBBData.php?createdBy=".$me->user_id));
                 
@@ -59,7 +62,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#addPreferenceModal').modal('hide')">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="$('#addPreferenceModal').modal('hide')">Close</button>
           <button type="submit" class="btn btn-primary">
             Add
           </button>

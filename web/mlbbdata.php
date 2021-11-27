@@ -26,7 +26,9 @@ if (isset($_COOKIE["token"])) {
       var USER = JSON.parse(`<?php print json_encode($me)?>`);
     </script>
     <title>MLBB Accounts | Gamebuddy</title>
-
+    <link rel="shortcut icon" type="text/css" href="img/Logo.jpg">
+    <!-- Log In CSS-->
+    <link rel="stylesheet" type="text/css" href="css/mlbbdata.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
@@ -47,23 +49,23 @@ if (isset($_COOKIE["token"])) {
     <!-- OPEN ICONIC -->
     <link href="./img/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg-dark text-white">
     <div class="container">
       <div class="d-flex flex-grow-1 p-3">
         <div class="d-flex">
-          <h4>MLBB Accounts</h4>
+          <h1><i class="far fa-user-circle"></i> MLBB Accounts</h1>
         </div>
         <div class="d-flex ml-auto" style="margin-left: auto">
           <?php require("./components/addMLBBDataModal.php");?>
         </div>
       </div>
-      <table class="table table-striped table-hover">
+      <table class="table text-white text-center">
         <thead>
           <tr>
-            <th>Mobile Legends ID</th>
-            <th>In Game Name</th>
-            <th>Created At</th>
-            <th>Actions</th>
+            <th class="fs-5" style="background: #3b3b3b;">Mobile Legends ID</th>
+            <th class="fs-5" style="background: #3b3b3b;">In Game Name</th>
+            <th class="fs-5" style="background: #3b3b3b;">Created At</th>
+            <th class="fs-5" style="background: #3b3b3b;">Actions</th>
           </tr>
         </thead>
         <tbody id="table-body">

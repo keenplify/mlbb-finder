@@ -30,7 +30,7 @@
     <title>Register | Mobile Legends: Bang Bang Player Finder Web Application</title>
   </head>
 
-        <body>
+        <body class="bg-dark">
           <!--- Registration Form --->
           <div class="container">
             <div class="row">

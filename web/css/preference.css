@@ -1,0 +1,12 @@
+h5{
+    font-family: "Bebas Neue", cursive;
+    text-shadow: 3px 3px 3px black;
+}
+label{
+    font-family: "Bebas Neue", cursive;
+    text-shadow: 3px 3px 3px black;
+}
+.card-body{
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+}
