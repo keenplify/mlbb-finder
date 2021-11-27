@@ -66,4 +66,16 @@ html {
   margin: 0.5em 0.25em;
   border-radius: 0.25em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  color: white;
+}
+
+.lobby-details {
+  position: absolute;
+  z-index: -1;
+}
+
+#users-container {
+  padding: 0 1em;
 }
