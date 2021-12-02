@@ -111,7 +111,9 @@
         <div class="row">
           <?php
             foreach($tickets as $ticket) {
+              echo '<div class="col-md-6">';
               echo TicketComponent($ticket);
+              echo '</div>';
             }
           ?>
         </div>
