@@ -1,8 +1,11 @@
 
-<form id="addMessageForm" class="bg-dark">
-  <div class="row">
+
+<div class="d-flex justify-content-end">
+<form id="addMessageForm" class="col-8 bg-dark">
+  
+  <div class="row py-1">
     <div class="col-10">
-      <textarea id="newMessageTextArea" name="newMessageTextArea" placeholder="Say something..." class="form-control rounded-0 bg-dark text-white" onkeydown="AutoSubmit()"></textarea>
+      <textarea id="newMessageTextArea" name="newMessageTextArea" placeholder="Say something..." class="form-control rounded-0 bg-dark text-white " onkeydown="AutoSubmit()"></textarea>
     </div>
     <div class="col-2">
       <button class="btn btn-success w-100 h-100">
@@ -11,8 +14,9 @@
       </button>
     </div>
   </div>
-</form>
 
+</form>
+</div>
 <script defer>
   const ADDMESSAGEFORM = document.querySelector("#addMessageForm");
   const ADDMESSAGE_TEXTAREA = document.querySelector("#newMessageTextArea");

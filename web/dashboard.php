@@ -29,7 +29,8 @@ if (isset($_COOKIE["token"])) {
   <head>
   <title>Mobile Legends: Bang Bang Player Finder Web Application  </title>
   <!---------------------------- CSS---------------------------->
-  <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+  <link rel="stylesheet" type="text/css" href="css/Dashboard.css">
+  
 
   <!---------------------------- Google Font ---------------------------->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,11 +71,6 @@ if (isset($_COOKIE["token"])) {
                 <span class="navbar-toggler-icon justify-content-end"></span>
                  </button>
             </div>
-
-             
-          
-        
-
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav flex-column">
 
@@ -88,23 +84,33 @@ if (isset($_COOKIE["token"])) {
               </p>
         </div>
 
-        <li class="nav-item">
-           <button onclick="toggle()" id="start_btn" class="btn1 btn-danger w-100 fs-5 mx-1">ENQUEUE</button>
+        <li class="nav-item m-auto w-100">
+           <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6">ENQUEUE</button>
         </li>
         <br>
-        <br>
+        
         <li class="nav-item">
-        <a href="mlbbdata.php" class="btn text-white fs-5 mx-4">Ticket</a>
+        <a href="Profile/view.php?user_id=<?php echo $me -> user_id?>" class="btn text-white fs-6 mx-4">Profile</a>
         </li>
         <br>
-        <br>
+        
         <li class="nav-item">
-        <a href="mlbbdata.php" class="btn text-white fs-5 mx-4">MLBB Accounts</a>
+        <a href="friends/requests.php" class="btn text-white fs-6 mx-4">Friend Requests</a>
         </li>
         <br>
-        <br>
+      
         <li class="nav-item">
-        <a href="http://localhost/server/api/users/logout.php" class="btn text-white fs-5 mx-4">Logout</a>
+        <a href="tickets" class="btn text-white fs-6 mx-4">Ticket</a>
+        </li>
+        <br>
+        
+        <li class="nav-item">
+        <a href="mlbbdata.php" class="btn text-white fs-6 mx-4">MLBB Accounts</a>
+        </li>
+        <br>
+      
+        <li class="nav-item">
+        <a href="http://localhost/server/api/users/logout.php" class="btn text-white fs-6 mx-4">Logout</a>
         </li>
       </ul>
 </div>             

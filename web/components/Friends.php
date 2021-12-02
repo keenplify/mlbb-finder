@@ -14,7 +14,7 @@
       $user = json_decode($getUser);
 
       echo '
-          <a class="card p-2" href="'.getOrigin_URL().'/web/profile/get.php?user_id='. $userId .'">
+          <a class="card p-2" href="'.getOrigin_URL().'/web/profile/view.php?user_id='. $userId .'">
             <div class="d-flex aligh-items-center">
               <span class="bg-primary rounded-circle avatar-sm">
               '.substr($user->firstname, 0, 1).'

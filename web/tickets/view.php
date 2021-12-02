@@ -37,6 +37,7 @@
 
     <!---------------------------- CSS---------------------------->
     <link rel="stylesheet" type="text/css" href="../css/tickets.css">
+   
 
     <!------------------------- LOGIC ---------------------------->
     <script src="../js/ticket-logic.js" defer></script>

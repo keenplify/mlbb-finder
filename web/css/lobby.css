@@ -3,6 +3,50 @@ html {
   overflow: hidden;
 } */
 
+
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("../img/images.png");
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+  
+}
+
+
+
+/*---------------------------- Navigation Bar ----------------------------*/
+.navbar-brand {
+  color: black;
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 3px 3px 3px black;
+
+}
+.navbar-brand:hover {
+  transform: scale(1.1);
+}
+.nav-item {
+  margin-right: 10px;
+  text-transform: uppercase;
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 3px 3px 3px black;
+}
+.nav-item:hover{
+
+  transform: scale(1.1);
+  background-color: white;
+  color: black;
+  
+}
+
+.time p span{
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 3px 3px 3px black;
+}
+.b1 {
+ box-shadow: 3px 3px 3px black;
+ font-size: 120px;
+}
+
 .container {
   position: relative;
   height: 100vh;
@@ -12,15 +56,13 @@ html {
 .main {
   display: flex;
   overflow-y: scroll;
-  height: 85%;
+  height: 85%;    
   /* align-self: stretch; */
 }
 
 #addMessageForm {
   background: white;
-  padding: 1em;
-  border-radius: 1em 1em 0 0;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0.5em;
   z-index: 999;
 }
 
@@ -34,9 +76,9 @@ html {
 }
 
 .message_card {
-  border-radius: 0.25em;
-  border: 1px solid grey;
-  background-color: white;
+  border-radius: 1em;
+  color: white;
+  background-color:rgb(85, 85, 85);
   min-width: min-content;
   max-width: 50%;
   padding: 0.5em;
@@ -45,7 +87,8 @@ html {
 }
 
 .author_badge {
-  background-color: blueviolet;
+  background-color: rgb(171, 177, 211);
+  color: black;
 }
 
 .author_you {
@@ -59,10 +102,12 @@ html {
 
 .message_card_you {
   margin-left: auto;
+  background-color: white;
+  color: black;
 }
 
 .player-card {
-  background-color: lightgoldenrodyellow;
+  font-size: 12px;
   padding: 0.25em;
   margin: 0.5em 0.25em;
   border-radius: 0.25em;
@@ -71,14 +116,25 @@ html {
   background-size: cover !important;
   color: white;
 }
+.player-card button{
+  width: 15%;
+  height: 20px;
+  font-size: 10px;
+}
 
 .lobby-details {
   position: absolute;
+
 }
 
 #users-container {
   padding: 0 1em;
 }
+.title1{
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 3px 3px 3px black;
+}
+
 
 @media only screen and (max-width: 768px) {
   .lobby-details {
