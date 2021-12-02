@@ -1,7 +1,7 @@
-body{
-  background-image:url("../img/bg1.png");
+body {
+  background-image: url("../img/bg1.png");
   background-position: 50% 50%;
-	background-size:cover;
+  background-size: cover;
 }
 
 .card-link {
@@ -11,9 +11,8 @@ body{
 /*---------------------------- Navigation Bar ----------------------------*/
 .navbar-brand {
   color: black;
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   text-shadow: 3px 3px 3px black;
-
 }
 .navbar-brand:hover {
   transform: scale(1.1);
@@ -24,19 +23,23 @@ body{
   font-family: "Fjalla One", sans-serif;
   text-shadow: 3px 3px 3px black;
 }
-.nav-item:hover{
-
+.nav-item:hover {
   transform: scale(1.1);
   background-color: white;
   color: black;
-  
 }
 
-.time p{
-  font-family: 'Bebas Neue', cursive;
+.time p {
+  font-family: "Bebas Neue", cursive;
   text-shadow: 3px 3px 3px black;
   color: white;
 }
-.btn1{
- box-shadow: 3px 3px 3px black;
+.btn1 {
+  box-shadow: 3px 3px 3px black;
+}
+
+.card {
+  height: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

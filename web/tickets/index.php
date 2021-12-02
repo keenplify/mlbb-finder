@@ -2,8 +2,9 @@
   session_start();
   require_once("../helpers/cURL.php");
   require_once("../helpers/authenticate.php");
-  require_once("../components/TicketCard.php");
   require_once("../components/EditTicket.php");
+  require_once("../components/TicketCard.php");
+  require_once("../helpers/url.php");
 
   $me = authenticate(false);
   $getAllTickets = CallAPI("GET", "http://localhost/server/api/tickets/getAll.php", false);
@@ -68,27 +69,27 @@
         <br>
         
         <li class="nav-item">
-        <a href="Profile/view.php?user_id=<?php echo $me -> user_id?>" class="btn text-white fs-5 mx-4">Profile</a>
+        <a href="<?php echo getOrigin_URL(); ?>/web/Profile/view.php?user_id=<?php echo $me -> user_id?>" class="btn text-white fs-5 mx-4">Profile</a>
         </li>
         <br>
         
         <li class="nav-item">
-        <a href="friends/requests.php" class="btn text-white fs-5 mx-4">Friend Requests</a>
+        <a href="<?php echo getOrigin_URL(); ?>/web/friends/requests.php" class="btn text-white fs-5 mx-4">Friend Requests</a>
         </li>
         <br>
       
         <li class="nav-item">
-        <a href="tickets" class="btn text-white fs-5 mx-4">Ticket</a>
+        <a href="<?php echo getOrigin_URL(); ?>/web/tickets" class="btn text-white fs-5 mx-4">Ticket</a>
         </li>
         <br>
         
         <li class="nav-item">
-        <a href="mlbbdata.php" class="btn text-white fs-5 mx-4">MLBB Accounts</a>
+        <a href="<?php echo getOrigin_URL(); ?>/web/mlbbdata.php" class="btn text-white fs-5 mx-4">MLBB Accounts</a>
         </li>
         <br>
       
         <li class="nav-item">
-        <a href="http://localhost/server/api/users/logout.php" class="btn text-white fs-5 mx-4">Logout</a>
+        <a href="<?php echo getOrigin_URL(); ?>/server/api/users/logout.php" class="btn text-white fs-5 mx-4">Logout</a>
         </li>
       </ul>
 </div>             
@@ -106,16 +107,15 @@
           ?>
         </div>
       </div>
-      <div class="tickets-container">
-   
-          
-        <?php
-          foreach($tickets as $ticket) {
-            echo TicketComponent($ticket);
-          }
-        ?>
-      
+      <div class="tickets-container container">
+        <div class="row">
+          <?php
+            foreach($tickets as $ticket) {
+              echo TicketComponent($ticket);
+            }
+          ?>
         </div>
+      </div>
     </div>
 
 </main>
