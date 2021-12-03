@@ -8,7 +8,7 @@
 
 
 <div>
-  <h4><?php echo $user->firstname. ' '.$user->lastname?>'s Tickets</h4>
+  <h4 class="display-6"><?php echo $user->firstname. ' '.$user->lastname?>'s TICKETS</h4>
   <?php
     foreach($userTickets as $ticket) {
       echo TicketComponent($ticket);

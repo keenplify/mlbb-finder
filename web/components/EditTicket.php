@@ -27,11 +27,11 @@ function EditTicketComponent($me, $ticket=false) {
     <!-- Modal -->
     <div class="modal fade" id="editTicketModal" tabindex="-1" role="dialog" aria-labelledby="editTicketModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-dark text-white">
           <div class="modal-header">
             <h5 class="modal-title" id="editTicketModalLabel">'. $modalTitle .'</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true" class="bg-white rounded">&times;</span>
             </button>
           </div>
           <form method="POST" action="'. $formAction .'">
@@ -45,11 +45,11 @@ function EditTicketComponent($me, $ticket=false) {
               </div>
               <div class="form-group">
                 <label for="body">Ticket Body</label>
-                <textarea class="form-control" id="body" name="body" rows="8">'. $body .'</textarea>
+                <textarea class="form-control" id="body" name="body" rows="8" placeholder="Enter your concern..">'. $body .'</textarea>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">'. $submitText .'</button>
             </div>
           </form>

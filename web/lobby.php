@@ -21,7 +21,8 @@ $me = $_SESSION["user"];
     <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
     <meta http-equiv="pragma" content="no-cache" />
 
-
+<!---------------------------- Bootstrap ---------------------------->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
      <!---------------------------- CSS---------------------------->
    <link rel="stylesheet" type="text/css" href="css/lobby.css">
   
@@ -52,7 +53,7 @@ $me = $_SESSION["user"];
   <aside class="col-12 col-md-3 col-xl-2 p-0 bg-dark flex-shrink-1">
           <nav class="vertical-nav navbar-expand-lg navbar-dark bd-dark flex-md-column flex-row  py-2  sticky-top" id="sidebar">
           <div class="container-fluid"> 
-                <a href="index.php" class="navbar-brand fs-2">GameBuddies</a>
+                <a href="dashboard.php" class="navbar-brand fs-2">GameBuddies</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
                 <span class="navbar-toggler-icon justify-content-end"></span>
                  </button>
@@ -132,7 +133,7 @@ $me = $_SESSION["user"];
 </div>
 </div>
       
-    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     
 
     <!-- Important Scripts! Dont Remove! -->

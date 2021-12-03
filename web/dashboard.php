@@ -66,7 +66,7 @@ if (isset($_COOKIE["token"])) {
         <aside class="col-12 col-md-3 col-xl-2 p-0 bg-dark flex-shrink-1">
           <nav class="vertical-nav navbar-expand-lg navbar-dark bd-dark flex-md-column flex-row  py-2  sticky-top" id="sidebar">
           <div class="container"> 
-                <a href="index.php" class="navbar-brand fs-2">GameBuddies</a>
+                <a href="dashboard.php" class="navbar-brand fs-2">GameBuddies</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
                 <span class="navbar-toggler-icon justify-content-end"></span>
                  </button>
@@ -89,7 +89,7 @@ if (isset($_COOKIE["token"])) {
         </li>
         <br>
         
-        <li class="nav-item">
+        <li class="nav-item li-hover li-dark ">
         <a href="Profile/view.php?user_id=<?php echo $me -> user_id?>" class="btn text-white fs-6 mx-4">Profile</a>
         </li>
         <br>
@@ -113,7 +113,7 @@ if (isset($_COOKIE["token"])) {
         <a href="http://localhost/server/api/users/logout.php" class="btn text-white fs-6 mx-4">Logout</a>
         </li>
       </ul>
-</div>             
+</div>      
 </nav>
       </aside>
 

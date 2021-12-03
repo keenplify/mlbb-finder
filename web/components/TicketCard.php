@@ -5,8 +5,8 @@ require_once("../helpers/url.php");
 
 function TicketComponent($ticket) {
   return '
-  <a href="'. getOrigin_URL() .'/web/tickets/view.php?ticket_id='. $ticket[0] .'"class="card-link">
-    <div class="card my-2">
+  <a href="'. getOrigin_URL() .'/web/tickets/view.php?ticket_id='. $ticket[0] .'"class="card-link text-decoration-none">
+    <div class="card Cardo my-2 text-white">
       <div class="card-body">
         <h5 class="card-title">'. $ticket[2]. " " . BadgeComponent(mapStatusToBootstrapContext($ticket[4]), $ticket[4]) .'</h5>
         <p>
