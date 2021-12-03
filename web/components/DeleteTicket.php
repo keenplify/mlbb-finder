@@ -11,7 +11,7 @@ function DeleteTicketComponent($ticket) {
     <!-- Modal -->
     <div class="modal fade" id="deleteTicketModal" tabindex="-1" role="dialog" aria-labelledby="deleteTicketModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-dark text-white">
           <div class="modal-header">
             <h5 class="modal-title" id="deleteTicketModalLabel">Delete Ticket</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

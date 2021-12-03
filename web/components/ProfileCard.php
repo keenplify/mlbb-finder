@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card bg-dark">
   <div class="profile-cover-container">
     <img class="card-img-top profile-cover" src="<?php echo getRandomImage()?>" alt="Card image cap">
   </div>
@@ -9,7 +9,7 @@
       </div>
       <div class="ml-3">
         <div>
-          <span class="font-weight-bold"><?php echo $user->firstname;?> <?php echo $user->lastname;?></span>
+          <span class="font-weight-bold fs-3 "><?php echo $user->firstname;?> <?php echo $user->lastname;?></span>
           <span class="badge badge-info"> @<?php echo $user->username; ?></span>
         </div>
         <div>

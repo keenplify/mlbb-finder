@@ -29,11 +29,8 @@
     text-shadow: 3px 3px 3px black;
   }
   .nav-item:hover{
-  
+    background-color: brown;
     transform: scale(1.1);
-    background-color: white;
-    color: black;
-    
   }
 
   .time p{
