@@ -25,6 +25,8 @@
     <link rel="shortcut icon" type="text/css" href="../img/Logo.jpg">
     <?php require "../helpers/libraries.php" ?>
     
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!---------------------------- Bootstrap ---------------------------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
@@ -38,6 +40,8 @@
 
     <!------------------------- LOGIC ---------------------------->
     <script src="../js/ticket-logic.js" defer></script>
+
+    <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
   </head>
   <body>
 
@@ -100,15 +104,15 @@
 
     <main class="col px-0 flex-grow-1">
  
-    <div class="header container">
+    <div class="header container " data-aos="fade-up">
     <h1 class="text-white text-center display-4 py-2">TICKETS</h1>
       <p class="p2 text-white text-center  col-md-10 m-auto py-2">Tickets provide this support throught information, assitance, and creating a trusting environment.  We must take care of the user by listening to the complaint, and resolving it, to ensure a happy user.</p> 
 </div>
 
 
-    <div class="container">
+    <div class="container" data-aos="fade-down">
     
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center" >
         <div class="btn btn-lg py-1">
           <?php 
             echo EditTicketComponent($me);
@@ -135,6 +139,10 @@
 
 
   
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>

@@ -1,6 +1,8 @@
 <!---------------------------- CSS---------------------------->
 <link rel="stylesheet" type="text/css" href="css/preference.css">
 
+<meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+
 <?php require "addPreferenceModal.php" ?>
 <?php require "deletePreferenceModal.php" ?>
 

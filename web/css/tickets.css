@@ -66,7 +66,7 @@ h1{
   text-shadow: 3px 3px 3px black;
 }
 .bg2{
-  background-image: url("../img/fhbMBK.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../img/9112b576009313.5c5ca8e8c45c3.jpg");
   background-position: 50% 50%;
   background-size: cover; 
 

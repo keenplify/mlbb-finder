@@ -4,10 +4,10 @@
 <form id="addMessageForm" class="col-8 bg-dark">
   
   <div class="row py-1">
-    <div class="col-10">
+    <div class="col-8">
       <textarea id="newMessageTextArea" name="newMessageTextArea" placeholder="Say something..." class="form-control rounded-0 bg-dark text-white " onkeydown="AutoSubmit()"></textarea>
     </div>
-    <div class="col-2">
+    <div class="col-4">
       <button class="btn btn-success w-100 h-100">
         <span class="oi oi-check"></span>
         Send

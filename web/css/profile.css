@@ -100,3 +100,13 @@ h4{
   font-family: "Bebas Neue", cursive;
   text-shadow: 3px 3px 3px black;
 }
+
+.body2{
+ 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../img/d6bd6768079c9be2c2900a5a1ac3c958 (1).jpg");
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
+  
+}

@@ -20,6 +20,7 @@ $me = $_SESSION["user"];
       <link rel="shortcut icon" type="text/css" href="img/Logo.jpg">
     <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
     <meta http-equiv="pragma" content="no-cache" />
+    <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
 
 <!---------------------------- Bootstrap ---------------------------->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -31,6 +32,8 @@ $me = $_SESSION["user"];
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora&family=Oswald:wght@200&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
+
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- JQUERY -->
     <script src="js/jquery-3.6.0.min.js"></script>
@@ -110,7 +113,7 @@ $me = $_SESSION["user"];
       <div class="main row">
         <div class="col-md-4 p-2">
         </div>
-        <div class="col-md-4  lobby-details py-1 ">
+        <div class="col-md-4  lobby-details py-1 " data-aos="fade-up">
           <p class="title1 text-center fs-4 ">
             LOBBY USERS
           <br>
@@ -120,7 +123,7 @@ $me = $_SESSION["user"];
           <div id="users-container" ></div>
         </div>
 
-        <div class="col-md-8 chat text-black bg-dark">
+        <div class="col-md-8 chat text-black bg-dark" data-aos="fade-up">
           <div id="messages_container" class="messages_container"></div>
         </div>
       </div>
@@ -135,6 +138,10 @@ $me = $_SESSION["user"];
       
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
     <!-- Important Scripts! Dont Remove! -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
