@@ -81,7 +81,7 @@ function Alert_CheckLobby() {
         You are currently in a lobby.
         <hr>
         <a class="btn btn-primary" href="http://localhost/web/lobby.php?id=${USER.currentLobbyUUID}">Join Lobby</a>
-        <a class="btn btn-danger" href="http://localhost/server/api/lobby/leave.php">Leave Lobby</a>
+        <a class="btn btn-danger" href="http://localhost/server/api/lobby/leave.php?redirect=http://localhost/web/dashboard.php">Leave Lobby</a>
       </div>
     `);
   }

@@ -2,15 +2,14 @@ body {
   background-image: url("../img/flat,750x1000,075,f.u4.jpg");
   background-position: 50% 50%;
   background-size: cover;
-  color:white;
+  color: white;
 }
 
 /*---------------------------- Navigation Bar ----------------------------*/
 .navbar-brand {
   color: black;
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   text-shadow: 3px 3px 3px black;
-
 }
 .navbar-brand:hover {
   transform: scale(1.1);
@@ -21,47 +20,22 @@ body {
   font-family: "Fjalla One", sans-serif;
   text-shadow: 3px 3px 3px black;
 }
-.nav-item:hover{
-
+.nav-item:hover {
   transform: scale(1.1);
   background-color: brown;
   color: black;
-  
 }
 
-.time p{
-  font-family: 'Bebas Neue', cursive;
-  text-shadow: 3px 3px 3px black;
-}
-.b1{
- box-shadow: 3px 3px 3px black;
-}
-h1{
+.time p {
   font-family: "Bebas Neue", cursive;
   text-shadow: 3px 3px 3px black;
 }
-
-
-.avatar,
-.avatar-sm {
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  text-shadow: 3px 3px 3px black;
+.b1 {
   box-shadow: 3px 3px 3px black;
 }
-
-.avatar-sm {
-  width: 2rem !important;
-  height: 2rem !important;
-  font-size: 1rem !important;
-  
+h1 {
+  font-family: "Bebas Neue", cursive;
+  text-shadow: 3px 3px 3px black;
 }
 
 .profile-cover-container {
@@ -77,11 +51,9 @@ h1{
   margin: auto;
   object-fit: cover;
   height: 20em;
-    
 }
-a:link{
+a:link {
   text-decoration: none;
-  
 }
 .cardo {
   background-image: url("../img/wp2945078.jpg");
@@ -91,12 +63,11 @@ a:link{
   text-overflow: ellipsis;
   color: white;
 }
-.cardo:hover{
+.cardo:hover {
   transform: scale(1.02);
   opacity: 0.8;
-  
 }
-h4{
+h4 {
   font-family: "Bebas Neue", cursive;
   text-shadow: 3px 3px 3px black;
 }

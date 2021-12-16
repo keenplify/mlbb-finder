@@ -1,5 +1,3 @@
-<?php require_once("../helpers/url.php"); ?>
-
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -14,3 +12,5 @@
 
 <!-- Iconic -->
 <link href="<?php getOrigin_URL() ?>/web/img/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+
+<link href="<?php getOrigin_URL() ?>/web/css/globals.css" rel="stylesheet">

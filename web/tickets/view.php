@@ -85,8 +85,11 @@
         </div>
 
         <li class="nav-item m-auto w-100">
-           <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6">ENQUEUE</button>
+           <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6" disabled>ENQUEUE</button>
         </li>
+        <br>
+
+        <?php include "../components/Search.php"?>
         <br>
         
         <li class="nav-item">

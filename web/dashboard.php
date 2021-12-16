@@ -1,6 +1,7 @@
 <?php
 session_start();
 require("./helpers/cURL.php");
+require("./helpers/url.php");
 
 $result = false;
 $me = false;
@@ -89,6 +90,9 @@ if (isset($_COOKIE["token"])) {
         </li>
         <br>
         
+        <?php include "./components/Search.php"?>
+        <br>
+        
         <li class="nav-item li-hover li-dark ">
         <a href="Profile/view.php?user_id=<?php echo $me -> user_id?>" class="btn text-white fs-6 mx-4">Profile</a>
         </li>
@@ -117,7 +121,7 @@ if (isset($_COOKIE["token"])) {
 </nav>
       </aside>
 
-    <main class="col px-0 flex-grow-1">
+    <main class="col px-0 flex-grow-1 mt-3">
  
      <div class="container">
   <div id="alerts"></div> 
@@ -126,8 +130,6 @@ if (isset($_COOKIE["token"])) {
 
 <div class="container-fluid">
   <div class="col-lg-10 mx-auto">
-
-
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="img/SNt5S4-1577359292846.jpg" class="d-block w-100" style="opacity: 0.5;">

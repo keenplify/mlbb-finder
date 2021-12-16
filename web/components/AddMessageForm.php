@@ -1,6 +1,6 @@
 
 
-<div class="d-flex justify-content-end">
+<div class="addMessageContainer">
 <form id="addMessageForm" class="col-8 bg-dark">
   
   <div class="row py-1">

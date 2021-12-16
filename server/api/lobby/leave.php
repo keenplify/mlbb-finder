@@ -15,6 +15,8 @@ $sql = "
 
 $result = $mysqli->query($sql);
 
+if (isset($_GET['redirect'])) header('Location: ' . $_GET['redirect']);
+
 if (!$result) {
   echo "User ID is invalid! " . $userId;
   http_response_code(406);

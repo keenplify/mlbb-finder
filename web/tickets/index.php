@@ -5,7 +5,8 @@
   require_once("../components/EditTicket.php");
   require_once("../components/TicketCard.php");
   require_once("../helpers/url.php");
-
+  require_once("../components/Badge.php");
+  require_once("../helpers/mapStatusToBootstrapContext.php");
   $me = authenticate(false);
   $getAllTickets = CallAPI("GET", "http://localhost/server/api/tickets/getAll.php", false);
 
@@ -70,8 +71,11 @@
         </div>
 
         <li class="nav-item m-auto w-100">
-           <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6">ENQUEUE</button>
+           <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6" disabled>ENQUEUE</button>
         </li>
+        <br>
+
+        <?php include "../components/Search.php"?>
         <br>
         
         <li class="nav-item">

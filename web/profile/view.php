@@ -4,6 +4,8 @@
   require_once("../helpers/authenticate.php");
   require_once("../helpers/url.php");
   require_once("../helpers/getRandomImage.php");
+  require_once("../helpers/mapStatusToBootstrapContext.php");
+  require_once("../components/Badge.php");
 
   $me = authenticate(false);
 
@@ -84,8 +86,11 @@
         </div>
 
         <li class="nav-item m-auto w-100">
-           <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6">ENQUEUE</button>
+           <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6" disabled>ENQUEUE</button>
         </li>
+        <br>
+
+        <?php include "../components/Search.php"?>
         <br>
         
         <li class="nav-item">

@@ -78,6 +78,9 @@ $me = $_SESSION["user"];
            <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6">ENQUEUE</button>
         </li>
         <br>
+
+        <?php include "./components/Search.php"?>
+        <br>
         
         <li class="nav-item">
         <a href="Profile/view.php?user_id=<?php echo $me -> user_id?>" class="btn text-white fs-5 mx-4">Profile</a>
@@ -123,19 +126,19 @@ $me = $_SESSION["user"];
           <div id="users-container" ></div>
         </div>
 
-        <div class="col-md-8 chat text-black bg-dark" data-aos="fade-up">
-          <div id="messages_container" class="messages_container"></div>
+        <div class="col-md-8 chat text-black bg-dark">
+          <div class="messages_container">
+            <div id="messages_wrapper">
+
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row addMessageRow">
-        <?php require("./components/AddMessageForm.php");?>
-      </div>
     </div>
-
+    <?php require("./components/AddMessageForm.php");?>
 </main>
 </div>
 </div>
-      
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -1,0 +1,25 @@
+#navbarNav {
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar,
+.avatar-sm {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 3px black;
+  box-shadow: 3px 3px 3px black;
+}
+
+.avatar-sm {
+  width: 2rem !important;
+  height: 2rem !important;
+  font-size: 1rem !important;
+}

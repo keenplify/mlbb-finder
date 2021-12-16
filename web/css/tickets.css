@@ -8,10 +8,10 @@ body {
 }
 
 .header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("../img/com.mobile.legends.sc0.2020-09-29-17-21-38.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+    url("../img/com.mobile.legends.sc0.2020-09-29-17-21-38.jpg");
   background-position: 50% 50%;
-  background-size: cover; 
-
+  background-size: cover;
 }
 /*---------------------------- Navigation Bar ----------------------------*/
 .navbar-brand {
@@ -30,7 +30,7 @@ body {
 }
 .nav-item:hover {
   transform: scale(1.1);
-  background-color:brown;
+  background-color: brown;
   color: black;
 }
 
@@ -46,40 +46,37 @@ body {
 .card {
   background-image: url("../img/wp2945078.jpg");
   box-shadow: 3px 3px 3px black;
-  height: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
   color: white;
 }
-.card:hover{
+.card:hover {
   transform: scale(1.02);
   opacity: 0.8;
-  
 }
-h1{
+h1 {
   font-family: "Bebas Neue", cursive;
   text-shadow: 3px 3px 3px black;
 }
-.p2{
-
+.p2 {
   font-size: 20px;
   text-shadow: 3px 3px 3px black;
 }
-.bg2{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../img/9112b576009313.5c5ca8e8c45c3.jpg");
+.bg2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../img/9112b576009313.5c5ca8e8c45c3.jpg");
   background-position: 50% 50%;
-  background-size: cover; 
+  background-size: cover;
+}
 
-}
-.awut:hover{
+.awut:hover {
   transform: scale(1.1);
-  color: black; 
+  color: black;
 }
-h2{
-  font-family: 'Titillium Web', sans-serif;
- 
+h2 {
+  font-family: "Titillium Web", sans-serif;
 }
-.box{
+.box {
   box-shadow: 3px 3px 3px black;
   border-radius: 5px;
 }
