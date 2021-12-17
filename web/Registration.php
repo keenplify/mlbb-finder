@@ -78,7 +78,7 @@
 
               <div class=" col-md-6">
                 <label>Birthday</label>
-                <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Birthday" required>
+                <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Birthday" onchange="onBirthdayChanged()" required>
               </div>
               </div>
 
@@ -96,7 +96,7 @@
               </form>
               <script defer>
                 const date = new Date()
-                date.setFullYear(date.getFullYear() - 18); 
+                date.setFullYear(date.getFullYear() - 13); 
                 document.querySelector("#birthday").value = formatDate(date) 
                 
                 function getAge(birthDateString) {
@@ -109,6 +109,7 @@
                   }
                   return age;
                 }
+                
 
                 function formatDate(date) {
                   var d = new Date(date),
@@ -126,6 +127,18 @@
 
                 const form = document.querySelector("#signup-form")
                 const output = document.querySelector("#signup-output")
+
+                 function onBirthdayChanged() {
+                  
+                  const birthday = document.querySelector('#birthday');
+
+                  if (getAge(birthday.value) < 13) {
+                    birthday.setCustomValidity('This website does not allow 13 years old and below to register.');
+                  } else {
+                   birthday.setCustomValidity("tite")
+                  }
+                }
+
                 form.onsubmit = function(event) {
                   event.preventDefault();
                   const data = {

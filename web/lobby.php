@@ -79,8 +79,8 @@ $me = $_SESSION["user"];
         </li>
         <br>
 
-        <?php include "./components/Search.php"?>
-        <br>
+        <!-- <?php //include "./components/Search.php"?>
+        <br> -->
         
         <li class="nav-item">
         <a href="Profile/view.php?user_id=<?php echo $me -> user_id?>" class="btn text-white fs-5 mx-4">Profile</a>

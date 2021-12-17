@@ -8,7 +8,7 @@ include_once("./components/TicketCard.php");
 include_once("./components/Badge.php");
 include_once("./helpers/mapStatusToBootstrapContext.php");
 
-$resultJSON = CallAPI("GET", getOrigin_URL()."/server/api/search/searchAll.php?keyword=".$_GET['keyword']);
+$resultJSON = CallAPI("GET", getOrigin_URL()."/server/api/search/searchAll.php?keyword=".urlencode($_GET['keyword']));
 $resultObject = json_decode($resultJSON);
 
 ?>
@@ -103,14 +103,14 @@ $resultObject = json_decode($resultJSON);
     <div class="container">
       <h3>Users</h3>
       <?php 
-      if (!$resultObject->users) {
+      if (empty($resultObject->users)) {
         echo "<h5>No users found.</h5>";
       } else foreach ($resultObject->users as $user):?>
         <?php echo UserCard($user, $user->user_id)?>
       <?php endforeach ?>
       <h3>Tickets</h3>
       <?php 
-      if (!$resultObject->tickets) {
+      if (empty($resultObject->tickets)) {
         echo "<h5>No tickets found.</h5>";
       } else foreach ($resultObject->tickets as $ticket):?>
         <?php echo TicketComponent($ticket, true)?>
