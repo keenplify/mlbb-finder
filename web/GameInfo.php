@@ -155,16 +155,13 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body text-white">
-                    1.	The preferences that can be inputted on the queue system will only include the user's main role, secondary role, mode of game and size of the party.
+                    1.	The preferences that can be inputted on the queue system will only include the user's main role, secondary role and mode of game.
                     <br> <br> 
                     2.	There will be no first-time setup after the registration page.
                     <br> <br> 
                     3.	The email inputted on the user will not be verified.
                     <br> <br> 
-                    4.   The gamer can switch allies if he does not want them to be included in the game. 
-                    <br> <br> 
-                    5.  The user can communicate and form a team in just one place. 
-
+                    4.  The user can communicate and form a team in just one place.
                     </div>
                     </div>
                 </div>
@@ -183,7 +180,7 @@
                     <br> <br> 
                     3.	The game buddy finder is an app that is only run in PH server. It is currently not available in any country.
                     <br> <br> 
-                    4.	The app has only two languages that can be used when using the app and it's either in English or in Tagalog.
+                    4.	The app has only two languages that can be used when using the app and it's in English.
                     <br> <br> 
                     5.	The stored player data on the database will be limited to: a. In-game name (IGN) and b. rank
 
