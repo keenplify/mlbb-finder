@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("./helpers/cURL.php");
-
+require("./helpers/url.php");
 
 $result = false;
 $me = false;
@@ -30,7 +30,7 @@ if (isset($_COOKIE["token"])) {
     <link rel="shortcut icon" type="text/css" href="img/Logo.jpg">
   
     <!-- Log In CSS-->
-    <link rel="stylesheet" type="text/css" href="css/Mlbbdata.css">
+    <link rel="stylesheet" type="text/css" href=".//css/mlbbdata.css">
    <!---------------------------- Bootstrap ---------------------------->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
@@ -80,6 +80,9 @@ if (isset($_COOKIE["token"])) {
            <button onclick="toggle()" id="start_btn" class="b1 btn btn-danger w-100 fs-6">ENQUEUE</button>
         </li>
         <br>
+
+        <?php include "./components/Search.php"; ?>
+        <br>
         
         <li class="nav-item li-hover li-dark ">
         <a href="Profile/view.php?user_id=<?php echo $me -> user_id?>" class="btn text-white fs-6 mx-4">Profile</a>
@@ -98,6 +101,11 @@ if (isset($_COOKIE["token"])) {
         
         <li class="nav-item">
         <a href="mlbbdata.php" class="btn text-white fs-6 mx-4">MLBB Accounts</a>
+        </li>
+        <br>
+
+        <li class="nav-item">
+        <a href="<?php echo getOrigin_URL(); ?>/web/settings.php" class="btn text-white fs-6 mx-4">Settings</a>
         </li>
         <br>
       

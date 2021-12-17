@@ -8,8 +8,21 @@ include_once("./components/TicketCard.php");
 include_once("./components/Badge.php");
 include_once("./helpers/mapStatusToBootstrapContext.php");
 
-$resultJSON = CallAPI("GET", getOrigin_URL()."/server/api/search/searchAll.php?keyword=".$_GET['keyword']);
-$resultObject = json_decode($resultJSON);
+if (isset($_COOKIE["token"])) {
+  $result = CallAPI("GET", "http://localhost/server/api/users/me.php", false, array(
+    "Authorization: Bearer " . $_COOKIE["token"]
+  ));
+  
+
+  if (!$result) {
+    header('Location: http://localhost/web/index.php');
+  } else {
+    $me = json_decode($result);
+    $_SESSION["user"] = $me;
+  }
+} else {
+  header('Location: http://localhost/web/index.php');
+}
 
 ?>
 
@@ -31,6 +44,18 @@ $resultObject = json_decode($resultJSON);
 
     <!---------------------------- CSS---------------------------->
     <link rel="stylesheet" type="text/css" href="./css/tickets.css">
+
+    <script>
+      function onPasswordChange() {
+        const password = document.querySelector('input[name=password]');
+        const confirm = document.querySelector('input[name=confirm]');
+        if (confirm.value === password.value) {
+          confirm.setCustomValidity('');
+        } else {
+          confirm.setCustomValidity('Passwords do not match');
+        }
+      }
+    </script>
   </head>
 
   <body class="text-white" bgcolor="#2e3548">
@@ -87,7 +112,7 @@ $resultObject = json_decode($resultJSON);
         <br>
 
         <li class="nav-item">
-        <a href="<?php echo getOrigin_URL(); ?>/web/settings.php" class="btn text-white fs-6 mx-4">Settings</a>
+        <a href="<?php echo getOrigin_URL(); ?>/web/settings.php" class="btn text-white fs-5 mx-4">Settings</a>
         </li>
         <br>
       
@@ -101,20 +126,67 @@ $resultObject = json_decode($resultJSON);
 
     <main class="col px-0 flex-grow-1 m-md-3">
     <div class="container">
-      <h3>Users</h3>
-      <?php 
-      if (!$resultObject->users) {
-        echo "<h5>No users found.</h5>";
-      } else foreach ($resultObject->users as $user):?>
-        <?php echo UserCard($user, $user->user_id)?>
-      <?php endforeach ?>
-      <h3>Tickets</h3>
-      <?php 
-      if (!$resultObject->tickets) {
-        echo "<h5>No tickets found.</h5>";
-      } else foreach ($resultObject->tickets as $ticket):?>
-        <?php echo TicketComponent($ticket, true)?>
-      <?php endforeach ?>
+      <h3>User Settings</h3>
+      <p>
+        <a class="btn btn-link link-light" data-toggle="collapse" href="#editUserCollapse" role="button" aria-expanded="true" aria-controls="editUserCollapse">
+          Show/Hide Edit User
+        </a>
+      </p>
+      <div class="collapse show" id="editUserCollapse" aria-expanded="true" >
+        <div class="card card-body">
+          <h4>Edit User Details</h4>
+          <form method="POST" action="<?php echo getOrigin_URL() ?>/server/api/users/update.php">
+            <input type="hidden" name="user_id" value="<?php echo $_SESSION["user"]->user_id?>">
+            <input type="hidden" name="redirect" value="<?php echo getFull_URL() ?>">
+            <div class="mb-3">
+              <label>Username:</label>
+              <input class="form-control" type="text" name="username" value="<?php echo $_SESSION["user"]->username ?>" placeholder="Enter Username">
+            </div>
+            <div class="mb-3">
+              <label>Email:</label>
+              <input class="form-control" type="email" name="email" value="<?php echo $_SESSION["user"]->email ?>" placeholder="Enter Email">
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label>First Name:</label>
+                <input class="form-control" type="text" name="firstname" value="<?php echo $_SESSION["user"]->firstname ?>" placeholder="Enter First Name">
+              </div>
+              <div class="col-md-6">
+                <label>Last Name:</label>
+                <input class="form-control" type="text" name="lastname" value="<?php echo $_SESSION["user"]->lastname ?>" placeholder="Enter Last Name">
+              </div>
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Edit User</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <p>
+        <a class="btn btn-link link-light" data-toggle="collapse" href="#editPasswordCollapse" role="button" aria-expanded="true" aria-controls="editPasswordCollapse">
+          Show/Hide Change Password
+        </a>
+      </p>
+      <div class="collapse show" id="editPasswordCollapse" aria-expanded="true">
+        <div class="card card-body">
+          <h4>Edit User Password</h4>
+          <form method="POST" action="<?php echo getOrigin_URL() ?>/server/api/users/updatePassword.php">
+            <input type="hidden" name="user_id" value="<?php echo $_SESSION["user"]->user_id?>">
+            <input type="hidden" name="redirect" value="<?php echo getFull_URL() ?>">
+            <div class="mb-3">
+              <label>Password:</label>
+              <input class="form-control" type="password" id="password" name="password" placeholder="Enter Password" onchange="onPasswordChange()" required>
+            </div>
+            <div class="mb-3">
+              <label>Confirm Password:</label>
+              <input class="form-control" type="password" name="confirm" id="confirm" placeholder="Confirm Password" onchange="onPasswordChange()" required>
+            </div>
+            <span id="message"></span>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Change Password</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 </main>

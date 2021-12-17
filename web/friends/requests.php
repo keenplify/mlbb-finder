@@ -85,6 +85,11 @@
         <a href="../mlbbdata.php" class="btn text-white fs-6 mx-4">MLBB Accounts</a>
         </li>
         <br>
+
+        <li class="nav-item">
+        <a href="../settings.php" class="btn text-white fs-6 mx-4">Settings</a>
+        </li>
+        <br>
       
         <li class="nav-item">
         <a href="http://localhost/server/api/users/logout.php" class="btn text-white fs-6 mx-4">Logout</a>
